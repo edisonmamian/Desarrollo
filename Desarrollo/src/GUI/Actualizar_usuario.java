@@ -14,14 +14,14 @@ import javax.swing.JOptionPane;
  *
  * @author natha
  */
-public class Actualizar_usuarioActualizar_usuario extends javax.swing.JFrame {
+public class Actualizar_usuario extends javax.swing.JFrame {
 
     /**
-     * Creates new form Actualizar_usuarioActualizar_usuario
+     * Creates new form Actualizar_usuario
      */
      ArrayList<String> datos = new ArrayList<>();
     
-    public Actualizar_usuarioActualizar_usuario() {
+    public Actualizar_usuario() {
         initComponents();
          this.setLocationRelativeTo(null);
          this.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
@@ -432,43 +432,6 @@ public class Actualizar_usuarioActualizar_usuario extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_campo_actualizar_telefonoKeyTyped
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Actualizar_usuarioActualizar_usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Actualizar_usuarioActualizar_usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Actualizar_usuarioActualizar_usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Actualizar_usuarioActualizar_usuario.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Actualizar_usuarioActualizar_usuario().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Jtext_cedula;
