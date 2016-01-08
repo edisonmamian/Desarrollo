@@ -59,6 +59,10 @@ public class Sedes {
         
         ArrayList <String> resp = new ArrayList<>();
         try{
+           Sedes con = new Sedes ();
+           
+           conexion = con.conectar();
+           
             //se crea un statemen con la conexion a la base de datos
            st = conexion.createStatement();
            //se realiza la consulta SQL  a la base de datos, en la tabla sedes con el nombre de la que se busca
@@ -89,6 +93,9 @@ public class Sedes {
     */
     public ResultSet listar () {
         try{
+            Sedes con = new Sedes ();
+           
+           conexion = con.conectar();
             //se crea un statemen con la conexion a la base de datos
            st = conexion.createStatement();
            // se ejecuta el comando SQL 
@@ -108,6 +115,9 @@ public class Sedes {
     */
     public ResultSet mostrar (String nombre) {
         try{
+            Sedes con = new Sedes ();
+           
+           conexion = con.conectar();
             //se crea un statemen con la conexion a la base de datos
            st = conexion.createStatement();
            //se realiza la consulta SQL  a la base de datos, en la tabla sedes con el nombre de la que se busca
@@ -127,6 +137,9 @@ public class Sedes {
         ArrayList <String> nom = new ArrayList<>();
                
        try{
+           Sedes con = new Sedes ();
+           
+           conexion = con.conectar();
             //se crea un statemen con la conexion a la base de datos
            st = conexion.createStatement();
            // se ejecuta el comando SQL 
@@ -154,6 +167,9 @@ public class Sedes {
         //es el comando SQL para realizar el cambio en los datos de la sede
         String comando = "UPDATE sedes SET nombre='" +nombre+"', ciudad='"+ciudad+"', direccion='"+direccion+"', telefono='"+telefono+"' WHERE nombre='" + nombre +"'";
         try{
+            Sedes con = new Sedes ();
+           
+           conexion = con.conectar();
                         
             //se crea un statement co la coneccion
             st = conexion.createStatement();
@@ -170,7 +186,10 @@ public class Sedes {
     }
     
     public void registrar (String nombre, String ciudad, String telefono, String direccion){
-        try{           
+        try{    
+            Sedes con = new Sedes ();
+           
+           conexion = con.conectar();
             //se crea un statement con la conexion
             st = conexion.createStatement();
             //se ejecuta el comando SQL para ingresar una sede nueva a la base de datos
