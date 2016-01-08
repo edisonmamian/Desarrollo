@@ -5,6 +5,7 @@
  */
 package logica;
 
+import java.awt.HeadlessException;
 import java.sql.*;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -13,13 +14,37 @@ import javax.swing.*;
  *
  * @author natha
  */
-public class Conexion_bd {
+public class Usuarios {
 
     String driver = "org.postgresql.Driver";
     String connectString = "jdbc:postgresql://localhost:5432/proyectoDesarrollo";
     String user = "postgres";
     String password = "NB210312DM";
+    Connection conexion = null;
+    
     ArrayList<String> consulta = new ArrayList<>();
+    
+    public Connection conectar () {
+        
+        if(conexion !=null){
+            return conexion;
+        }
+        
+        try { 
+            //se hace el llamado al driver que ayuda con la conexion
+            Class.forName("org.postgresql.Driver"); 
+            //se crea la conexion con los datos que se definieron arriba
+            conexion = DriverManager.getConnection(connectString,user,password); 
+            
+            if (conexion != null){
+                System.out.println("conectando a base de datos");
+            }
+            
+        } catch(ClassNotFoundException | SQLException | HeadlessException exc) { 
+            System.out.println("Errorx:"+e­xc.getMessage()); }
+            JOptionPane.showMessageDialog(null, "error al conectar a la base de datos");
+         return conexion;
+    }
 
     public int registrar_usuario(int cedula, String usuario, String contrasena,
             String nombre, String apellido, String rol, String direccion,
@@ -28,21 +53,19 @@ public class Conexion_bd {
        int existe=0;
         
         try {
-            Class.forName(driver);
-            Connection con = DriverManager.getConnection(connectString, user, password);
-            Statement stmt = con.createStatement();
+            Usuarios conex = new Usuarios ();
+            conexion = conex.conectar();
+            Statement stmt = conexion.createStatement();
 
             stmt.executeUpdate("INSERT INTO usuarios VALUES ('" + cedula + "','" + usuario + "','" + contrasena + "','" + nombre + "','" + apellido + "','" + rol + "','" + direccion + "','" + telefono + "','" + email + "')");
             existe = 1;
             stmt.close();
-            con.close();
+            conexion.close();
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "El usuario ya existe");
             existe=0;
 
-        } catch (ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Error inesperado");
         }
         
         return existe;
@@ -58,12 +81,11 @@ public class Conexion_bd {
                 + "'" + apellido + "' where cedula =" + cedula + ";";
 
         try {
-            Class.forName(driver);
-            Connection con = DriverManager.getConnection(connectString, user, password);
+            Usuarios conex = new Usuarios ();
+            conexion = conex.conectar();
+            Statement stmt = conexion.createStatement();
 
             System.out.println(usuario + contrasena + nombre + apellido + rol + direccion + telefono + email);
-
-            Statement stmt = con.createStatement();
 
             int n = stmt.executeUpdate(query);
 
@@ -75,15 +97,12 @@ public class Conexion_bd {
             } else {
 
             }
-
             
-            con.close();
+            conexion.close();
 
         } catch (SQLException e) {
             System.out.println(e); 
 
-        } catch (ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Error inesperado");
         }
 
     }
@@ -91,11 +110,11 @@ public class Conexion_bd {
     public ArrayList<String> consultar_usuario(int cedula) {
 
         try {
-            ResultSet rs = null;
-            Class.forName(driver);
-            Connection con = DriverManager.getConnection(connectString, user, password);
-            Statement stmt = con.createStatement();
-
+            ResultSet rs;
+            Usuarios conex = new Usuarios ();
+            conexion = conex.conectar();
+            Statement stmt = conexion.createStatement();
+            
             rs = stmt.executeQuery("SELECT * FROM usuarios WHERE cedula=" + cedula);
             while (rs.next()) {
 
@@ -123,13 +142,11 @@ public class Conexion_bd {
             }
 
             stmt.close();
-            con.close();
+            conexion.close();
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "El usuario ya existe");
 
-        } catch (ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Error inesperado");
         }
         return consulta;
 
@@ -141,11 +158,10 @@ public class Conexion_bd {
       
         
         try {
-            ResultSet rs = null;
-            Class.forName(driver);
-            Connection con = DriverManager.getConnection(connectString, user, password);
-            Statement stmt = con.createStatement();
-
+            ResultSet rs;
+            Usuarios conex = new Usuarios ();
+            conexion = conex.conectar();
+            Statement stmt = conexion.createStatement();
             
             rs = stmt.executeQuery("SELECT usuario,contrasena,rol FROM usuarios WHERE usuario='"+usuario+"';");
             while (rs.next()) {
@@ -163,13 +179,12 @@ public class Conexion_bd {
             }
 
             stmt.close();
-            con.close();
+            conexion.close();
 
-        } catch (SQLException | Error e) {
+        } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "El usuario no existe");
+            System.out.println("error " + e);
 
-        } catch (ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Error inesperado");
         }
         
         

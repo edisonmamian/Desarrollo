@@ -383,7 +383,7 @@ public class Consultar_usuario extends javax.swing.JFrame {
              * cada uno de los datos del usuario solicitado, y se imprimen en los
              * campos.
              */
-        Conexion_bd obj_consultar = new Conexion_bd();
+        Usuarios obj_consultar = new Usuarios();
         System.out.println("Conecto el objeto");
         datos=obj_consultar.consultar_usuario(cedula);
         

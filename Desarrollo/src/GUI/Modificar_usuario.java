@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import logica.Conexion_bd;
+import logica.Usuarios;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.print.event.PrintJobEvent;
@@ -364,7 +364,7 @@ public class Modificar_usuario extends javax.swing.JFrame {
 
         try {
             //Conexión a la base de datos
-            Conexion_bd obj_consultar = new Conexion_bd();
+            Usuarios obj_consultar = new Usuarios();
             /**
              * Se llama al metodo consultar usuario con el numero de cedula a
              * consultar y se devuelve en el ArrayList<String> datos, cada uno
@@ -449,7 +449,7 @@ public class Modificar_usuario extends javax.swing.JFrame {
          * y se cierra la ventana al realizarse la operación.
          */
 
-        Conexion_bd obj_modificar = new Conexion_bd();
+        Usuarios obj_modificar = new Usuarios();
         obj_modificar.modificar_usuario(cedula, usuario, contrasena, nombre, apellido, rol_, direccion, telefono, email);
         this.dispose();
          }

@@ -364,7 +364,7 @@ public class Registrar_usuario extends javax.swing.JFrame {
              * correctamente de lo contrario el usuario ya existia y se le
              * informa al usuario
              */
-            Conexion_bd obj_conectarbd = new Conexion_bd();
+            Usuarios obj_conectarbd = new Usuarios();
 
             int n = obj_conectarbd.registrar_usuario(cedula, usuario, contrasena, nombre, apellido, rol, direccion, telefono, email);
 

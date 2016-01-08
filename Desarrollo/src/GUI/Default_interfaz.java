@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import logica.Conexion_bd;
+import logica.Usuarios;
 import com.oracle.jrockit.jfr.ContentType;
 import java.awt.HeadlessException;
 import java.util.ArrayList;
@@ -176,7 +176,7 @@ public class Default_interfaz extends javax.swing.JFrame {
                  * contra, rol : almacena lo extraido de la bd
                  *
                  */
-                Conexion_bd objeto_bd = new Conexion_bd();
+                Usuarios objeto_bd = new Usuarios();
                 ingreso = objeto_bd.comprobar_inicio_sesion(usuario, contrasena);
                 user = ingreso.get(0);
                 contra = ingreso.get(1);

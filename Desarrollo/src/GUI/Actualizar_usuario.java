@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import logica.Conexion_bd;
+import logica.Usuarios;
 import java.awt.Toolkit;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -367,7 +367,7 @@ public class Actualizar_usuario extends javax.swing.JFrame {
         int cedula = Integer.parseInt(campobuscar_cedula.getText());
         
         try{
-        Conexion_bd obj_consultar = new Conexion_bd();
+        Usuarios obj_consultar = new Usuarios();
         datos = obj_consultar.consultar_usuario(cedula);
         int rol = 0;
         //System.out.println("boton"+user+nom+ape+rol_+dir+tel+em);
@@ -410,7 +410,7 @@ public class Actualizar_usuario extends javax.swing.JFrame {
         String telefono=campo_actualizar_telefono.getText();
         String email=campo_actualizar_email.getText();
         
-        Conexion_bd obj_modificar = new Conexion_bd();
+        Usuarios obj_modificar = new Usuarios();
         obj_modificar.modificar_usuario(cedula, usuario, contrasena, nombre, apellido, rol_, direccion, telefono, email);
         this.dispose();
     }//GEN-LAST:event_boton_modificar_usuariosActionPerformed

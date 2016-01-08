@@ -51,7 +51,7 @@ public class Sedes {
             
         } catch(ClassNotFoundException | SQLException | HeadlessException exc) { 
             System.out.println("Errorx:"+e­xc.getMessage()); }
-        
+            JOptionPane.showMessageDialog(null, "Error al conectar a la base de datos");
          return conexion;
     }
     
@@ -180,7 +180,7 @@ public class Sedes {
             }else{
                 System.out.println("error al modificar");
             }
-        }catch (Exception e){
+        }catch (SQLException | HeadlessException e){
             System.out.println("Error de conexion");
         }
     }
