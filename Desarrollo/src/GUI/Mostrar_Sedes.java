@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package GUI;
-import logica.*;
+import logica.Sedes;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
@@ -155,7 +155,7 @@ public class Mostrar_Sedes extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     public void  imprimir (String nombre) throws SQLException {
         
-        Buscar_Sede_Codigo buscar = new Buscar_Sede_Codigo();
+        Sedes buscar = new Sedes();
         rs=buscar.listar();
                        
         DefaultTableModel modelo = new DefaultTableModel();
@@ -190,7 +190,7 @@ public class Mostrar_Sedes extends javax.swing.JFrame {
     
     public void  sacar (String nombre) throws SQLException {
         
-        Buscar_Sede_Codigo buscar = new Buscar_Sede_Codigo();
+        Sedes buscar = new Sedes();
         rs=buscar.mostrar(nombre);
                        
         DefaultTableModel modelo = new DefaultTableModel();

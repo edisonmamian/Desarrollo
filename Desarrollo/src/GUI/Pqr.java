@@ -5,7 +5,7 @@
  */
 package GUI;
 
-import logica.Buscar_Sede_Codigo;
+import logica.Sedes;
 import logica.Bd_pqr;
 import java.awt.Toolkit;
 import java.sql.ResultSet;
@@ -392,7 +392,7 @@ public class Pqr extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
 
-        Buscar_Sede_Codigo buscar = new Buscar_Sede_Codigo();
+        Sedes buscar = new Sedes();
         ArrayList<String> listar_nombres = new ArrayList<>();
         listar_nombres = buscar.obtener_sedes();
 

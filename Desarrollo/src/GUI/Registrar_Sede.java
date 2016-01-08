@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package GUI;
-import logica.*;
+import logica.Sedes;
 import java.awt.Toolkit;
 import javax.swing.JOptionPane;
 
@@ -226,7 +226,7 @@ public class Registrar_Sede extends javax.swing.JFrame {
     private void boton_registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_registrarActionPerformed
         // TODO add your handling code here:
         
-        Registrar_Sede_Codigo reg = new Registrar_Sede_Codigo();
+        Sedes reg = new Sedes();
         boolean verificar = false;
         
         /*

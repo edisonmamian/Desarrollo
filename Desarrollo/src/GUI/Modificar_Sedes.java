@@ -6,7 +6,7 @@
 package GUI;
 
 import java.util.ArrayList;
-import logica.*;
+import logica.Sedes;
 import java.awt.Toolkit;
 /**
  *
@@ -211,7 +211,7 @@ public class Modificar_Sedes extends javax.swing.JFrame {
         String direccion = campo_modificar_direccion.getText();
         String telefono = campo_modificar_telefono.getText();
         
-        Modificar_Sede_Codigo mod = new Modificar_Sede_Codigo();
+        Sedes mod = new Sedes();
         //se hace el llamado a la funcion que realiza el cambio en la base de datos
         mod.cambiar(nombre, ciudad, direccion, telefono);
         /*
@@ -241,7 +241,7 @@ public class Modificar_Sedes extends javax.swing.JFrame {
         ArrayList <String> datos = new ArrayList<>();
         //se obtiene el nombre de la sede que se va a modificar
         String nombre = campo_consultar_sede.getText();
-        Buscar_Sede_Codigo reg = new Buscar_Sede_Codigo();
+        Sedes reg = new Sedes();
         //se hace el llamado a la funcion que busca en la base de datos
         datos = reg.consultar(nombre);
         //se llenan los campos de texto con la informacion que se encuentra en la base de datos

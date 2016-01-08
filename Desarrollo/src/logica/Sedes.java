@@ -6,29 +6,55 @@
 
 package logica;
 
+import java.awt.HeadlessException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author Edison Mamian cod. 1224279
  */
 
-import java.sql.Connection;
-import java.sql.Statement;
-import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
-import java.sql.SQLException;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
-
-
-public class Buscar_Sede_Codigo {
+public class Sedes {
+    private Connection conexion = null;
     private ResultSet rs = null;
     private Statement st = null;
-    Conectar_bd conect = new Conectar_bd();
-    private Connection conexion=conect.conectar();
-    
     /*
-    se encarga de traer los datos de la sede que se va a modificar
-    */
+    se encarga de crear la conexion con la base de datos
+    */     
+    public Connection conectar () {
+        
+        if(conexion !=null){
+            return conexion;
+        }
+        // son los comandos para acceder a la base de datos
+        String cadena = "jdbc:postgresql://localhost:5432/proyectoDesarrollo";
+        //es el usuario de la base de datos
+        String user ="postgres"; 
+        //es la contraseña de la base de datos
+        String pass = "NB210312DM"; 
+        try { 
+            //se hace el llamado al driver que ayuda con la conexion
+            Class.forName("org.postgresql.Driver"); 
+            //se crea la conexion con los datos que se definieron arriba
+            conexion = DriverManager.getConnection(cadena,user,pass); 
+            
+            if (conexion != null){
+                System.out.println("conectando a base de datos");
+            }
+            
+        } catch(ClassNotFoundException | SQLException | HeadlessException exc) { 
+            System.out.println("Errorx:"+e­xc.getMessage()); }
+        
+         return conexion;
+    }
+    
     public ArrayList<String> consultar (String nombre) {
         
         ArrayList <String> resp = new ArrayList<>();
@@ -123,4 +149,43 @@ public class Buscar_Sede_Codigo {
         
         return nom;
     }
+    
+    public void cambiar (String nombre, String ciudad, String direccion, String telefono){
+        //es el comando SQL para realizar el cambio en los datos de la sede
+        String comando = "UPDATE sedes SET nombre='" +nombre+"', ciudad='"+ciudad+"', direccion='"+direccion+"', telefono='"+telefono+"' WHERE nombre='" + nombre +"'";
+        try{
+                        
+            //se crea un statement co la coneccion
+            st = conexion.createStatement();
+            //se envia el comando SQL a la base de datos
+            int resp = st.executeUpdate(comando);
+            if(resp==1){
+                JOptionPane.showMessageDialog(null,"se modifico correctamente");
+            }else{
+                System.out.println("error al modificar");
+            }
+        }catch (Exception e){
+            System.out.println("Error de conexion");
+        }
+    }
+    
+    public void registrar (String nombre, String ciudad, String telefono, String direccion){
+        try{           
+            //se crea un statement con la conexion
+            st = conexion.createStatement();
+            //se ejecuta el comando SQL para ingresar una sede nueva a la base de datos
+            int resp = st.executeUpdate("INSERT INTO sedes VALUES ('"+nombre+"','"+ ciudad +"','"+direccion +"','"+telefono+"')");
+            
+            if (resp == 1){
+                System.out.println("se agrego el registro correctamente");
+            }else{
+                System.out.println("Error al agregar registro");
+            }
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "La sede ya existe");
+        }catch(Exception e){
+            System.out.println("Error de conexion");
+        }
+    }
+       
 }
