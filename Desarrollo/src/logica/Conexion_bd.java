@@ -52,7 +52,7 @@ public class Conexion_bd {
             String nombre, String apellido, String rol, String direccion,
             String telefono, String email) {
 
-        String query = "";
+        String query;
         int resultado = 0;
         query = "update usuarios set usuario ='" + usuario + "', contrasena ='" + contrasena + "', nombre ='" + nombre + "', apellidos ="
                 + "'" + apellido + "' where cedula =" + cedula + ";";
@@ -165,13 +165,11 @@ public class Conexion_bd {
             stmt.close();
             con.close();
 
-        } catch (SQLException e) {
+        } catch (SQLException | Error e) {
             JOptionPane.showMessageDialog(null, "El usuario no existe");
 
         } catch (ClassNotFoundException e) {
             JOptionPane.showMessageDialog(null, "Error inesperado");
-        } catch (Error e){
-            JOptionPane.showMessageDialog(null, "El usuario no existe");
         }
         
         
