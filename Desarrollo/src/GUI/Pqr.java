@@ -8,10 +8,8 @@ package GUI;
 import logica.Sedes;
 import logica.Bd_pqr;
 import java.awt.Toolkit;
-import java.sql.ResultSet;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 /**
  *
