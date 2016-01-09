@@ -179,8 +179,7 @@ public class Bd_pqr {
             System.out.println(estado+" "+respuesta+" "+identificador);            
 
             int n = stmt.executeUpdate(query);
-
-            
+           
             
 // String sql = "UPDATE usuarios SET usuario = ?, contrasena = ?, nombre = ?, apellido = ?, rol = ?, direccion = ?, telefono = ?, email = ? WHERE cedula = ?";
             if (n > 0) {
@@ -188,7 +187,6 @@ public class Bd_pqr {
             } else {
 
             }
-
             
             con.close();
 
