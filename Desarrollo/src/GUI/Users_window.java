@@ -243,6 +243,7 @@ public class Users_window extends javax.swing.JFrame {
         // se devuelve a la ventana anterior
         First_window obj_ventana_principal = new First_window();
         obj_ventana_principal.setVisible(true);
+        obj_ventana_principal.rol(rol_user);
         this.dispose();
     }//GEN-LAST:event_volver_principalActionPerformed
 

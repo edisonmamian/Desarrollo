@@ -297,6 +297,7 @@ public class Offices_window extends javax.swing.JFrame {
         
         First_window obj_ventana = new First_window();
         obj_ventana.setVisible(true);
+        obj_ventana.rol(rol_user);
         this.dispose();
         
     }//GEN-LAST:event_boton_regresar_sedesActionPerformed
