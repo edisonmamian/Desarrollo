@@ -97,12 +97,12 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="campo_registro_apellido" pref="194" max="32767" attributes="0"/>
                                   <Component id="campo_registro_cedula" min="-2" pref="119" max="-2" attributes="0"/>
-                                  <Component id="ComboBox_registro_rol" min="-2" max="-2" attributes="0"/>
                                   <Component id="campo_registro_telefono" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
                                   <Component id="campo_registro_contrasena" alignment="0" max="32767" attributes="0"/>
                                   <Component id="campo_registro_usuario" alignment="0" pref="119" max="32767" attributes="0"/>
                                   <Component id="campo_registro_direccion" alignment="0" max="32767" attributes="0"/>
                                   <Component id="campo_registro_email" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="ComboBox_registro_rol" alignment="0" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                           </Group>
@@ -328,17 +328,13 @@
         </Component>
         <Component class="javax.swing.JComboBox" name="ComboBox_registro_rol">
           <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="6">
-                <StringItem index="0" value="Administrador"/>
-                <StringItem index="1" value="Gerente"/>
-                <StringItem index="2" value="Secretaria"/>
-                <StringItem index="3" value="Contador"/>
-                <StringItem index="4" value="Operario de Planta"/>
-                <StringItem index="5" value="Auxiliar de Operaci&#xf3;n"/>
-              </StringArray>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new javax.swing.DefaultComboBoxModel(new String[] { &quot;Administrador&quot;, &quot;Gerente&quot;, &quot;Secretaria&quot;, &quot;Contador&quot;, &quot;Operador de Planta&quot;, &quot;Auxiliar de Operaci&#xf3;n&quot; })" type="code"/>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComboBox_registro_rolActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="campo_registro_direccion">
           <Events>

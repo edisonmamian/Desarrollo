@@ -166,8 +166,8 @@ public class Bd_pqr {
         String query = "";
         String estado = "Resuelto";
         int resultado = 0;
-        query = "update pqr set estado ='" + estado + "', respuesta ="
-                + "'" + respuesta + "' where id_pqr =" + identificador + ";";
+        query = "update pqr set estado ='" + estado + "', respuesta = '"
+                 + respuesta + "' where id_pqr =" + identificador + ";";
 
         try {
             Bd_pqr pq = new Bd_pqr();

@@ -164,7 +164,12 @@ public class Registrar_usuario extends javax.swing.JFrame {
 
         campo_registro_contrasena.setText("jPasswordField1");
 
-        ComboBox_registro_rol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Gerente", "Secretaria", "Contador", "Operario de Planta", "Auxiliar de Operación" }));
+        ComboBox_registro_rol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Gerente", "Secretaria", "Contador", "Operador de Planta", "Auxiliar de Operación" }));
+        ComboBox_registro_rol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBox_registro_rolActionPerformed(evt);
+            }
+        });
 
         campo_registro_direccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -224,12 +229,12 @@ public class Registrar_usuario extends javax.swing.JFrame {
                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(campo_registro_apellido, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
                                 .addComponent(campo_registro_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(ComboBox_registro_rol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(campo_registro_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(campo_registro_contrasena)
                                 .addComponent(campo_registro_usuario, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
                                 .addComponent(campo_registro_direccion)
-                                .addComponent(campo_registro_email))
+                                .addComponent(campo_registro_email)
+                                .addComponent(ComboBox_registro_rol, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGap(8, 8, 8))))
                 .addGap(19, 19, 19))
         );
@@ -406,6 +411,10 @@ public class Registrar_usuario extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_campo_registro_telefonoKeyTyped
+
+    private void ComboBox_registro_rolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBox_registro_rolActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBox_registro_rolActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox ComboBox_registro_rol;
