@@ -17,9 +17,9 @@ import javax.swing.*;
 public class Usuarios {
 
     String driver = "org.postgresql.Driver";
-    String connectString = "jdbc:postgresql://localhost:5432/proyectoDesarrollo";
-    String user = "postgres";
-    String password = "NB210312DM";
+    String connectString = "jdbc:postgresql://localhost:5432/proyectodesarrollo";
+    String user = "edisonmamian";
+    String password = "01269121";
     Connection conexion = null;
     Statement stmt = null;
     
@@ -80,8 +80,8 @@ public class Usuarios {
 
         String query;
         int resultado = 0;
-        query = "update usuarios set usuario ='" + usuario + "', contrasena ='" + contrasena + "', nombre ='" + nombre + "', apellidos ="
-                + "'" + apellido + "' where cedula =" + cedula + ";";
+        query = "update usuarios set usuario ='" + usuario + "', contrasena ='" + contrasena + "', nombre ='" + nombre + "', apellidos = '"
+                + apellido + "' where cedula =" + cedula;
 
         try {
             Usuarios conex = new Usuarios ();
@@ -93,13 +93,12 @@ public class Usuarios {
             int n = stmt.executeUpdate(query);            
             
 // String sql = "UPDATE usuarios SET usuario = ?, contrasena = ?, nombre = ?, apellido = ?, rol = ?, direccion = ?, telefono = ?, email = ? WHERE cedula = ?";
-            if (n > 0) {
+            if (n == 1) {
                 JOptionPane.showMessageDialog(null, "Modificación correcta");
             } else {
-
+                System.out.println("error al modificar");
             }            
-            conexion.close();
-
+            
         } catch (SQLException e) {
             System.out.println(e); 
         }
