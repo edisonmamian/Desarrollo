@@ -146,7 +146,7 @@ public class Bd_pqr {
             while (rs.next()) {
                 existe = Integer.parseInt(rs.getString(1));
                 System.out.println(existe);
-                JOptionPane.showMessageDialog(null, "Su PQR se ha enviado correctamente \n El numero para consultar el estado de su solicitud \n es:" + existe);
+                JOptionPane.showMessageDialog(null, "Su PQR se ha enviado correctamente \n El numero para consultar el estado de su solicitud \n es:" + (existe+1));
 
             }
 
