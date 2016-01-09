@@ -5,6 +5,7 @@
  */
 package logica;
 
+import java.awt.HeadlessException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -23,6 +24,30 @@ public class Bd_pqr {
     String connectString = "jdbc:postgresql://localhost:5432/proyectoDesarrollo";
     String user = "postgres";
     String password = "NB210312DM";
+    Connection con = null;
+    Statement stmt = null;
+    
+    public Connection conectar () {
+        
+        if(con !=null){
+            return con;
+        }
+        
+        try { 
+            //se hace el llamado al driver que ayuda con la conexion
+            Class.forName("org.postgresql.Driver"); 
+            //se crea la conexion con los datos que se definieron arriba
+            con = DriverManager.getConnection(connectString,user,password); 
+            
+            if (con != null){
+                System.out.println("conectando a base de datos");
+            }
+            
+        } catch(ClassNotFoundException | SQLException | HeadlessException exc) { 
+            System.out.println("Errorx:"+e­xc.getMessage()); }
+            JOptionPane.showMessageDialog(null, "error al conectar a la base de datos");
+         return con;
+    }
 
     public int insertar_pqr(String tipo_pqr, String detalle, String nombre,
             String apellido, String cedula, String direccion, String telefono,
@@ -31,10 +56,10 @@ public class Bd_pqr {
         int existe = 0;
 
         try {
-            Class.forName(driver);
-            Connection con = DriverManager.getConnection(connectString, user, password);
-            Statement stmt = con.createStatement();
-
+            Bd_pqr pq = new Bd_pqr();
+            con = pq.conectar();
+            stmt = con.createStatement();
+            
             stmt.executeUpdate("INSERT INTO pqr VALUES (NEXTVAL('identificador'),'" + tipo_pqr + "','" + detalle + "','" + nombre + "','" + apellido + "','" + cedula + "','" + direccion + "','" + telefono + "','" + email + "' ,'" + sede + "','En Proceso')");
             existe = 1;
             stmt.close();
@@ -43,9 +68,6 @@ public class Bd_pqr {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
             existe = 0;
-
-        } catch (ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Error inesperado");
         }
 
         return existe;
@@ -58,9 +80,9 @@ public class Bd_pqr {
         
         try {
             ResultSet rs = null;
-            Class.forName(driver);
-            Connection con = DriverManager.getConnection(connectString, user, password);
-            Statement stmt = con.createStatement();
+            Bd_pqr pq = new Bd_pqr();
+            con = pq.conectar();
+            stmt = con.createStatement();
 
             rs = stmt.executeQuery("SELECT * FROM pqr WHERE id_pqr=" + identificador);
             while (rs.next()) {
@@ -102,8 +124,6 @@ public class Bd_pqr {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "El numero de pqr a buscar no existe"+e);
 
-        } catch (ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Error inesperado");
         }
         return consulta;
 
@@ -115,9 +135,9 @@ public class Bd_pqr {
         ResultSet rs = null;
 
         try {
-            Class.forName(driver);
-            Connection con = DriverManager.getConnection(connectString, user, password);
-            Statement stmt = con.createStatement();
+            Bd_pqr pq = new Bd_pqr();
+            con = pq.conectar();
+            stmt = con.createStatement();
 
             rs = stmt.executeQuery("SELECT NEXTVAL('identificador')");
 
@@ -135,8 +155,6 @@ public class Bd_pqr {
             JOptionPane.showMessageDialog(null, e);
             existe = 0;
 
-        } catch (ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Error inesperado");
         }
 
         return existe;
@@ -152,12 +170,11 @@ public class Bd_pqr {
                 + "'" + respuesta + "' where id_pqr =" + identificador + ";";
 
         try {
-            Class.forName(driver);
-            Connection con = DriverManager.getConnection(connectString, user, password);
+            Bd_pqr pq = new Bd_pqr();
+            con = pq.conectar();
+            stmt = con.createStatement();
 
-            System.out.println(estado+" "+respuesta+" "+identificador);
-
-            Statement stmt = con.createStatement();
+            System.out.println(estado+" "+respuesta+" "+identificador);            
 
             int n = stmt.executeUpdate(query);
 
@@ -176,8 +193,6 @@ public class Bd_pqr {
         } catch (SQLException e) {
             System.out.println(e); 
 
-        } catch (ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Error inesperado");
         }
         
     }
@@ -189,9 +204,9 @@ public class Bd_pqr {
         ArrayList<String> list_pqr = new ArrayList<>();
 
         try {
-            Class.forName(driver);
-            Connection con = DriverManager.getConnection(connectString, user, password);
-            Statement stmt = con.createStatement();
+            Bd_pqr pq = new Bd_pqr();
+            con = pq.conectar();
+            stmt = con.createStatement();
 
             rs = stmt.executeQuery("SELECT id_pqr FROM pqr;");
 
@@ -209,11 +224,7 @@ public class Bd_pqr {
             JOptionPane.showMessageDialog(null, e);
             existe = 0;
 
-        } catch (ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(null, "Error inesperado");
-        }
-
-        
+        }        
         
         return list_pqr;
        

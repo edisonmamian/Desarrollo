@@ -88,24 +88,19 @@ public class Usuarios {
 
             System.out.println(usuario + contrasena + nombre + apellido + rol + direccion + telefono + email);
 
-            int n = stmt.executeUpdate(query);
-
-            
+            int n = stmt.executeUpdate(query);            
             
 // String sql = "UPDATE usuarios SET usuario = ?, contrasena = ?, nombre = ?, apellido = ?, rol = ?, direccion = ?, telefono = ?, email = ? WHERE cedula = ?";
             if (n > 0) {
                 JOptionPane.showMessageDialog(null, "Modificación correcta");
             } else {
 
-            }
-            
+            }            
             conexion.close();
 
         } catch (SQLException e) {
             System.out.println(e); 
-
         }
-
     }
 
     public ArrayList<String> consultar_usuario(int cedula) {
@@ -150,7 +145,6 @@ public class Usuarios {
 
         }
         return consulta;
-
     }
     
     public ArrayList<String> comprobar_inicio_sesion(String usuario, String contrasena){
@@ -186,8 +180,7 @@ public class Usuarios {
             JOptionPane.showMessageDialog(null, "El usuario no existe");
             System.out.println("error " + e);
 
-        }
-        
+        }        
         
         return iguales;
     }
