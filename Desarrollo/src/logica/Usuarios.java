@@ -83,7 +83,6 @@ public class Usuarios {
 
         query = "update usuarios set usuario ='" + usuario + "', contrasena ='" + contrasena + "', nombre ='" + nombre + "', apellidos ="
                 + "'" + apellido + "', rol ='" + rol + "', telefono ='" + telefono + "', direccion ='" + direccion + "', email ='" + email + "' where cedula =" + cedula + ";";
-
        
         try {
             Usuarios conex = new Usuarios ();
