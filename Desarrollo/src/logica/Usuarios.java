@@ -42,8 +42,10 @@ public class Usuarios {
             }
             
         } catch(ClassNotFoundException | SQLException | HeadlessException exc) { 
-            System.out.println("Errorx:"+e­xc.getMessage()); }
+            System.out.println("Errorx:"+e­xc.getMessage());
             JOptionPane.showMessageDialog(null, "error al conectar a la base de datos");
+        }
+            
          return conexion;
     }
 
