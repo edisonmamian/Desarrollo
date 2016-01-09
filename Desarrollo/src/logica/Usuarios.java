@@ -81,7 +81,7 @@ public class Usuarios {
         String query;
         int resultado = 0;
         query = "update usuarios set usuario ='" + usuario + "', contrasena ='" + contrasena + "', nombre ='" + nombre + "', apellidos ="
-                + "'" + apellido + "' where cedula =" + cedula + ";";
+                + "'" + apellido + "', rol ='" + rol + "', telefono ='" + telefono + "', direccion ='" + direccion + "', email ='" + email + "' where cedula =" + cedula + ";";
 
         try {
             Usuarios conex = new Usuarios ();
@@ -89,8 +89,9 @@ public class Usuarios {
             stmt = conexion.createStatement();
 
             System.out.println(usuario + contrasena + nombre + apellido + rol + direccion + telefono + email);
-
-            int n = stmt.executeUpdate(query);            
+            System.out.println("Query"+query);
+            int n = stmt.executeUpdate(query);   
+            System.out.println(n);
             
 // String sql = "UPDATE usuarios SET usuario = ?, contrasena = ?, nombre = ?, apellido = ?, rol = ?, direccion = ?, telefono = ?, email = ? WHERE cedula = ?";
             if (n > 0) {
