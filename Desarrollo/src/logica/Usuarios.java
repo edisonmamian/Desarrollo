@@ -80,13 +80,12 @@ public class Usuarios {
 
         String query;
         int resultado = 0;
-<<<<<<< HEAD
+
         query = "update usuarios set usuario ='" + usuario + "', contrasena ='" + contrasena + "', nombre ='" + nombre + "', apellidos ="
                 + "'" + apellido + "', rol ='" + rol + "', telefono ='" + telefono + "', direccion ='" + direccion + "', email ='" + email + "' where cedula =" + cedula + ";";
-=======
+
         query = "update usuarios set usuario ='" + usuario + "', contrasena ='" + contrasena + "', nombre ='" + nombre + "', apellidos = '"
                 + apellido + "' where cedula =" + cedula;
->>>>>>> origin/master
 
         try {
             Usuarios conex = new Usuarios ();
