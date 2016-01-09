@@ -21,6 +21,7 @@ public class Usuarios {
     String user = "postgres";
     String password = "NB210312DM";
     Connection conexion = null;
+    Statement stmt = null;
     
     ArrayList<String> consulta = new ArrayList<>();
     
@@ -55,7 +56,7 @@ public class Usuarios {
         try {
             Usuarios conex = new Usuarios ();
             conexion = conex.conectar();
-            Statement stmt = conexion.createStatement();
+            stmt = conexion.createStatement();
 
             stmt.executeUpdate("INSERT INTO usuarios VALUES ('" + cedula + "','" + usuario + "','" + contrasena + "','" + nombre + "','" + apellido + "','" + rol + "','" + direccion + "','" + telefono + "','" + email + "')");
             existe = 1;
@@ -83,7 +84,7 @@ public class Usuarios {
         try {
             Usuarios conex = new Usuarios ();
             conexion = conex.conectar();
-            Statement stmt = conexion.createStatement();
+            stmt = conexion.createStatement();
 
             System.out.println(usuario + contrasena + nombre + apellido + rol + direccion + telefono + email);
 
@@ -113,7 +114,7 @@ public class Usuarios {
             ResultSet rs;
             Usuarios conex = new Usuarios ();
             conexion = conex.conectar();
-            Statement stmt = conexion.createStatement();
+            stmt = conexion.createStatement();
             
             rs = stmt.executeQuery("SELECT * FROM usuarios WHERE cedula=" + cedula);
             while (rs.next()) {
@@ -161,7 +162,7 @@ public class Usuarios {
             ResultSet rs;
             Usuarios conex = new Usuarios ();
             conexion = conex.conectar();
-            Statement stmt = conexion.createStatement();
+            stmt = conexion.createStatement();
             
             rs = stmt.executeQuery("SELECT usuario,contrasena,rol FROM usuarios WHERE usuario='"+usuario+"';");
             while (rs.next()) {
