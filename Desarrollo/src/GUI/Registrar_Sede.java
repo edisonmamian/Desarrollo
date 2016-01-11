@@ -58,7 +58,6 @@ public class Registrar_Sede extends javax.swing.JFrame {
 
         jLabel1.setText("Nombre:");
 
-        campo_registrar_ciudad.setBackground(new java.awt.Color(236, 236, 237));
         campo_registrar_ciudad.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_registrar_ciudadActionPerformed(evt);
@@ -67,20 +66,16 @@ public class Registrar_Sede extends javax.swing.JFrame {
 
         jLabel2.setText("Ciudad:");
 
-        campo_registrar_direccion.setBackground(new java.awt.Color(236, 236, 237));
-
         jLabel3.setText("Dirección:");
 
         jLabel4.setText("Telefono:");
 
-        campo_registrar_telefono.setBackground(new java.awt.Color(236, 236, 237));
         campo_registrar_telefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_registrar_telefonoKeyTyped(evt);
             }
         });
 
-        campo_registrar_nombre.setBackground(new java.awt.Color(236, 236, 237));
         campo_registrar_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_registrar_nombreActionPerformed(evt);

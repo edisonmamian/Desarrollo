@@ -90,14 +90,12 @@ public class Modificar_usuario extends javax.swing.JFrame {
 
         jLabel17.setText(" Email:");
 
-        campo_modificar_nombre.setBackground(new java.awt.Color(236, 236, 237));
         campo_modificar_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_modificar_nombreActionPerformed(evt);
             }
         });
 
-        campo_modificar_apellido.setBackground(new java.awt.Color(236, 236, 237));
         campo_modificar_apellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_modificar_apellidoActionPerformed(evt);
@@ -120,19 +118,16 @@ public class Modificar_usuario extends javax.swing.JFrame {
             }
         });
 
-        campo_modificar_contrasena.setBackground(new java.awt.Color(236, 236, 237));
         campo_modificar_contrasena.setText("jPasswordField1");
 
         ComboBox_modificar_rol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Gerente", "Secretaria", "Contador", "Operario de Planta", "Auxiliar de Operación" }));
 
-        campo_modificar_direccion.setBackground(new java.awt.Color(236, 236, 237));
         campo_modificar_direccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_modificar_direccionActionPerformed(evt);
             }
         });
 
-        campo_modificar_telefono.setBackground(new java.awt.Color(236, 236, 237));
         campo_modificar_telefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_modificar_telefonoActionPerformed(evt);
@@ -144,7 +139,6 @@ public class Modificar_usuario extends javax.swing.JFrame {
             }
         });
 
-        campo_modificar_email.setBackground(new java.awt.Color(236, 236, 237));
         campo_modificar_email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_modificar_emailActionPerformed(evt);
@@ -158,7 +152,6 @@ public class Modificar_usuario extends javax.swing.JFrame {
             }
         });
 
-        campo_consultarmodificar_cedula.setBackground(new java.awt.Color(236, 236, 237));
         campo_consultarmodificar_cedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_consultarmodificar_cedulaActionPerformed(evt);
@@ -216,20 +209,21 @@ public class Modificar_usuario extends javax.swing.JFrame {
                                 .addComponent(jLabel15)
                                 .addGap(68, 68, 68)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(campo_modificar_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
-                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(boton_modificar_consultar)
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(campo_modificar_apellido)
-                                    .addComponent(campo_modificar_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ComboBox_modificar_rol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(campo_modificar_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(campo_modificar_contrasena)
-                                    .addComponent(campo_modificar_usuario)
-                                    .addComponent(campo_modificar_direccion)
-                                    .addComponent(campo_modificar_email, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)))
-                            .addComponent(campo_consultarmodificar_cedula))))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(campo_modificar_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(boton_modificar_consultar)
+                                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(campo_modificar_apellido)
+                                        .addComponent(campo_modificar_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(ComboBox_modificar_rol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(campo_modificar_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(campo_modificar_contrasena, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE)
+                                        .addComponent(campo_modificar_usuario)
+                                        .addComponent(campo_modificar_direccion)))
+                                .addComponent(campo_consultarmodificar_cedula))
+                            .addComponent(campo_modificar_email, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(29, 29, 29))
             .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -270,13 +264,13 @@ public class Modificar_usuario extends javax.swing.JFrame {
                             .addComponent(campo_modificar_contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel16)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel17)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                                .addGap(27, 27, 27))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(ComboBox_modificar_rol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel13))
@@ -286,9 +280,9 @@ public class Modificar_usuario extends javax.swing.JFrame {
                                     .addComponent(jLabel15))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(campo_modificar_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(campo_modificar_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
+                                .addGap(18, 18, 18)
+                                .addComponent(campo_modificar_email, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11)))
                         .addComponent(boton_modificar_usuarios)
                         .addGap(22, 22, 22))))
         );

@@ -55,8 +55,6 @@ public class Modificar_Sedes extends javax.swing.JFrame {
 
         jLabel1.setText("Nombre:");
 
-        campo_consultar_sede.setBackground(new java.awt.Color(236, 236, 237));
-
         jButton3.setText("Consultar");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,11 +68,6 @@ public class Modificar_Sedes extends javax.swing.JFrame {
 
         jLabel4.setText("Teléfono:");
 
-        campo_modificar_ciudad.setBackground(new java.awt.Color(236, 236, 237));
-
-        campo_modificar_direccion.setBackground(new java.awt.Color(236, 236, 237));
-
-        campo_modificar_telefono.setBackground(new java.awt.Color(236, 236, 237));
         campo_modificar_telefono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 campo_modificar_telefonoKeyTyped(evt);

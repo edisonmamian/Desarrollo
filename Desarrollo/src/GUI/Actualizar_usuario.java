@@ -88,7 +88,7 @@ public class Actualizar_usuario extends javax.swing.JFrame {
         jLabel17.setText(" Email:");
 
         campo_actualizar_nombre.setEditable(false);
-        campo_actualizar_nombre.setBackground(new java.awt.Color(236, 236, 237));
+        campo_actualizar_nombre.setBackground(new java.awt.Color(255, 255, 255));
         campo_actualizar_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_actualizar_nombreActionPerformed(evt);
@@ -96,7 +96,7 @@ public class Actualizar_usuario extends javax.swing.JFrame {
         });
 
         campo_actualizar_apellido.setEditable(false);
-        campo_actualizar_apellido.setBackground(new java.awt.Color(236, 236, 237));
+        campo_actualizar_apellido.setBackground(new java.awt.Color(255, 255, 255));
         campo_actualizar_apellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_actualizar_apellidoActionPerformed(evt);
@@ -104,7 +104,7 @@ public class Actualizar_usuario extends javax.swing.JFrame {
         });
 
         campo_actualizar_cedula.setEditable(false);
-        campo_actualizar_cedula.setBackground(new java.awt.Color(236, 236, 237));
+        campo_actualizar_cedula.setBackground(new java.awt.Color(204, 204, 204));
         campo_actualizar_cedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_actualizar_cedulaActionPerformed(evt);
@@ -112,24 +112,21 @@ public class Actualizar_usuario extends javax.swing.JFrame {
         });
 
         campo_actualizar_usuario.setEditable(false);
-        campo_actualizar_usuario.setBackground(new java.awt.Color(236, 236, 237));
+        campo_actualizar_usuario.setBackground(new java.awt.Color(204, 204, 204));
         campo_actualizar_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_actualizar_usuarioActionPerformed(evt);
             }
         });
 
-        campo_actualizar_contrasena.setBackground(new java.awt.Color(236, 236, 237));
         campo_actualizar_contrasena.setText("jPasswordField1");
 
-        campo_actualizar_direccion.setBackground(new java.awt.Color(236, 236, 237));
         campo_actualizar_direccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_actualizar_direccionActionPerformed(evt);
             }
         });
 
-        campo_actualizar_telefono.setBackground(new java.awt.Color(236, 236, 237));
         campo_actualizar_telefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_actualizar_telefonoActionPerformed(evt);
@@ -141,7 +138,6 @@ public class Actualizar_usuario extends javax.swing.JFrame {
             }
         });
 
-        campo_actualizar_email.setBackground(new java.awt.Color(236, 236, 237));
         campo_actualizar_email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_actualizar_emailActionPerformed(evt);
@@ -155,7 +151,6 @@ public class Actualizar_usuario extends javax.swing.JFrame {
             }
         });
 
-        campobuscar_cedula.setBackground(new java.awt.Color(236, 236, 237));
         campobuscar_cedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campobuscar_cedulaActionPerformed(evt);
@@ -177,7 +172,7 @@ public class Actualizar_usuario extends javax.swing.JFrame {
         });
 
         campo_rol_actualizar_user.setEditable(false);
-        campo_rol_actualizar_user.setBackground(new java.awt.Color(236, 236, 237));
+        campo_rol_actualizar_user.setBackground(new java.awt.Color(204, 204, 204));
 
         jLabel18.setBackground(new java.awt.Color(255, 255, 255));
         jLabel18.setFont(new java.awt.Font("Serif", 1, 20)); // NOI18N
@@ -266,20 +261,20 @@ public class Actualizar_usuario extends javax.swing.JFrame {
                             .addComponent(campo_actualizar_contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel12))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                                .addComponent(jLabel13)
-                                .addGap(11, 11, 11)
-                                .addComponent(jLabel15)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel16)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(jLabel17)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                                .addComponent(campo_rol_actualizar_user, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel13)
+                                    .addComponent(campo_rol_actualizar_user, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(campo_actualizar_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(campo_actualizar_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel15))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(campo_actualizar_telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)

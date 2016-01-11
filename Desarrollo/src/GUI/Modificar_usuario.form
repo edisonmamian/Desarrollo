@@ -87,22 +87,24 @@
                               </Group>
                           </Group>
                           <EmptySpace pref="17" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="campo_modificar_nombre" pref="194" max="32767" attributes="0"/>
-                              <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                  <Component id="boton_modificar_consultar" min="-2" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="campo_modificar_apellido" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="campo_modificar_cedula" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
-                                      <Component id="ComboBox_modificar_rol" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="campo_modificar_telefono" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
-                                      <Component id="campo_modificar_contrasena" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="campo_modificar_usuario" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="campo_modificar_direccion" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="campo_modificar_email" alignment="0" pref="194" max="32767" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="campo_modificar_nombre" pref="194" max="32767" attributes="0"/>
+                                  <Group type="103" alignment="0" groupAlignment="1" attributes="0">
+                                      <Component id="boton_modificar_consultar" min="-2" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="campo_modificar_apellido" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="campo_modificar_cedula" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
+                                          <Component id="ComboBox_modificar_rol" alignment="0" min="-2" max="-2" attributes="0"/>
+                                          <Component id="campo_modificar_telefono" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
+                                          <Component id="campo_modificar_contrasena" alignment="0" pref="194" max="32767" attributes="0"/>
+                                          <Component id="campo_modificar_usuario" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="campo_modificar_direccion" alignment="0" max="32767" attributes="0"/>
+                                      </Group>
                                   </Group>
+                                  <Component id="campo_consultarmodificar_cedula" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="campo_consultarmodificar_cedula" alignment="0" max="32767" attributes="0"/>
+                              <Component id="campo_modificar_email" alignment="1" min="-2" pref="194" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -155,12 +157,12 @@
                               <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
                               <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="9" max="-2" attributes="0"/>
+                                  <EmptySpace min="27" pref="27" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
                                   <Group type="103" groupAlignment="3" attributes="0">
@@ -174,11 +176,11 @@
                                   </Group>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                   <Component id="campo_modificar_telefono" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                  <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="campo_modificar_email" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="boton_modificar_usuarios" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
@@ -236,21 +238,11 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="campo_modificar_nombre">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ed" green="ec" red="ec" type="rgb"/>
-            </Property>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campo_modificar_nombreActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="campo_modificar_apellido">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ed" green="ec" red="ec" type="rgb"/>
-            </Property>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campo_modificar_apellidoActionPerformed"/>
           </Events>
@@ -279,9 +271,6 @@
         </Component>
         <Component class="javax.swing.JPasswordField" name="campo_modificar_contrasena">
           <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ed" green="ec" red="ec" type="rgb"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="jPasswordField1"/>
           </Properties>
         </Component>
@@ -300,32 +289,17 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="campo_modificar_direccion">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ed" green="ec" red="ec" type="rgb"/>
-            </Property>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campo_modificar_direccionActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="campo_modificar_telefono">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ed" green="ec" red="ec" type="rgb"/>
-            </Property>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campo_modificar_telefonoActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campo_modificar_telefonoKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="campo_modificar_email">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ed" green="ec" red="ec" type="rgb"/>
-            </Property>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campo_modificar_emailActionPerformed"/>
           </Events>
@@ -339,11 +313,6 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="campo_consultarmodificar_cedula">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ed" green="ec" red="ec" type="rgb"/>
-            </Property>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campo_consultarmodificar_cedulaActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campo_consultarmodificar_cedulaKeyTyped"/>

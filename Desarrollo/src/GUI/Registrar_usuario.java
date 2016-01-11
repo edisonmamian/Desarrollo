@@ -91,21 +91,18 @@ public class Registrar_usuario extends javax.swing.JFrame {
 
         jLabel17.setText(" Email:");
 
-        campo_registro_nombre.setBackground(new java.awt.Color(236, 236, 237));
         campo_registro_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_registro_nombreActionPerformed(evt);
             }
         });
 
-        campo_registro_apellido.setBackground(new java.awt.Color(236, 236, 237));
         campo_registro_apellido.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_registro_apellidoActionPerformed(evt);
             }
         });
 
-        campo_registro_cedula.setBackground(new java.awt.Color(236, 236, 237));
         campo_registro_cedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_registro_cedulaActionPerformed(evt);
@@ -117,14 +114,12 @@ public class Registrar_usuario extends javax.swing.JFrame {
             }
         });
 
-        campo_registro_usuario.setBackground(new java.awt.Color(236, 236, 237));
         campo_registro_usuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_registro_usuarioActionPerformed(evt);
             }
         });
 
-        campo_registro_contrasena.setBackground(new java.awt.Color(236, 236, 237));
         campo_registro_contrasena.setText("jPasswordField1");
 
         ComboBox_registro_rol.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Administrador", "Gerente", "Secretaria", "Contador", "Operador de Planta", "Auxiliar de Operación" }));
@@ -134,14 +129,12 @@ public class Registrar_usuario extends javax.swing.JFrame {
             }
         });
 
-        campo_registro_direccion.setBackground(new java.awt.Color(236, 236, 237));
         campo_registro_direccion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_registro_direccionActionPerformed(evt);
             }
         });
 
-        campo_registro_telefono.setBackground(new java.awt.Color(236, 236, 237));
         campo_registro_telefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_registro_telefonoActionPerformed(evt);
@@ -153,7 +146,6 @@ public class Registrar_usuario extends javax.swing.JFrame {
             }
         });
 
-        campo_registro_email.setBackground(new java.awt.Color(236, 236, 237));
         campo_registro_email.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_registro_emailActionPerformed(evt);

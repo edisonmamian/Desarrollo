@@ -62,14 +62,11 @@ public class Default_interfaz extends javax.swing.JFrame {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Bienvenido, por favor autentiquese para continuar.");
 
-        campo_user.setBackground(new java.awt.Color(236, 236, 237));
         campo_user.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_userActionPerformed(evt);
             }
         });
-
-        campo_inicio_contrasena.setBackground(new java.awt.Color(236, 236, 237));
 
         boton_ingresar.setText("Ingresar");
         boton_ingresar.addActionListener(new java.awt.event.ActionListener() {
