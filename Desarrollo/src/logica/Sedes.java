@@ -34,11 +34,11 @@ public class Sedes {
             return conexion;
         }
         // son los comandos para acceder a la base de datos
-        String cadena = "jdbc:postgresql://localhost:5432/proyectoDesarrollo";
+        String cadena = "jdbc:postgresql://localhost:5432/proyectodesarrollo";
         //es el usuario de la base de datos
-        String user ="postgres"; 
+        String user ="edisonmamian"; 
         //es la contraseña de la base de datos
-        String pass = "NB210312DM"; 
+        String pass = "01269121"; 
         try { 
             //se hace el llamado al driver que ayuda con la conexion
             Class.forName("org.postgresql.Driver"); 
@@ -199,6 +199,7 @@ public class Sedes {
             
             if (resp == 1){
                 System.out.println("se agrego el registro correctamente");
+                JOptionPane.showMessageDialog(null, "Se agrego correctamente");
             }else{
                 System.out.println("Error al agregar registro");
             }
