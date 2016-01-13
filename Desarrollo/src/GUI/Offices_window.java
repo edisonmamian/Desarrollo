@@ -240,7 +240,7 @@ public class Offices_window extends javax.swing.JFrame {
         }
         
         buscar.setVisible(true);
-        this.dispose();
+        
     }//GEN-LAST:event_boton_buscar_sedeActionPerformed
     /*
     se encarga de acceder a la ventana con la que se realizan registros en la base de datos

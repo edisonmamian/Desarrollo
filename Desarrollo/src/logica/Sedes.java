@@ -34,11 +34,11 @@ public class Sedes {
             return conexion;
         }
         // son los comandos para acceder a la base de datos
-        String cadena = "jdbc:postgresql://localhost:5432/proyectodesarrollo";
+        String cadena = "jdbc:postgresql://localhost:5432/proyectoDesarrollo";
         //es el usuario de la base de datos
-        String user ="edisonmamian"; 
+        String user ="postgres"; 
         //es la contraseña de la base de datos
-        String pass = "01269121"; 
+        String pass = "NB210312DM"; 
         try { 
             //se hace el llamado al driver que ayuda con la conexion
             Class.forName("org.postgresql.Driver"); 
