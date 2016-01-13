@@ -17,9 +17,9 @@ import javax.swing.*;
 public class Usuarios {
 
     String driver = "org.postgresql.Driver";
-    String connectString = "jdbc:postgresql://localhost:5432/proyectoDesarrollo";
-    String user = "postgres";
-    String password = "NB210312DM";
+    String connectString = "jdbc:postgresql://localhost:5432/proyectodesarrollo";
+    String user = "edisonmamian";
+    String password = "01269121";
     Connection conexion = null;
     Statement stmt = null;
     
