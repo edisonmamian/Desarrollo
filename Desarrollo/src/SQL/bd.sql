@@ -44,3 +44,12 @@ CREATE TABLE pqr (
         PRIMARY KEY(id_pqr)
 );
 
+CREATE TABLE clientes (
+	cedula INTEGER NOT NULL,
+	nombre VARCHAR(30) NOT NULL,
+	apellidos VARCHAR(40) NOT NULL,
+	direccion VARCHAR(50),
+	telefono VARCHAR(10),
+	email VARCHAR(30),
+	PRIMARY KEY (cedula)
+);
