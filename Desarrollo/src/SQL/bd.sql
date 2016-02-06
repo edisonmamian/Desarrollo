@@ -17,7 +17,7 @@ CREATE TABLE usuarios (
 	contrasena VARCHAR(20) NOT NULL,
 	nombre VARCHAR(30) NOT NULL,
 	apellidos VARCHAR(40) NOT NULL,
-	rol VARCHAR (20) NOT NULL,
+	rol VARCHAR (30) NOT NULL,
 	direccion VARCHAR(50),
 	telefono VARCHAR(10),
 	email VARCHAR(30),
@@ -43,13 +43,30 @@ CREATE TABLE pqr (
         respuesta VARCHAR(200),
         PRIMARY KEY(id_pqr)
 );
+CREATE SEQUENCE iden
+START 1001
+increment by 1;
+CREATE TABLE envio (
+	id_envio INTEGER DEFAULT nextval('iden') NOT NULL,
+        nombre VARCHAR(50) NOT NULL,
+        cedula VARCHAR(25) NOT NULL,
+        direccion VARCHAR(100) NOT NULL,
+        telefono VARCHAR(10) NOT NULL,
+        nombre2 VARCHAR(50) NOT NULL,
+        cedula2 VARCHAR(25) NOT NULL,
+        direccion2 VARCHAR(100) NOT NULL,
+        telefono2 VARCHAR(10) NOT NULL,
+        sede VARCHAR(25) NOT NULL,
+        tipo VARCHAR(25) NOT NULL,
+        observacion VARCHAR(25) NOT NULL,
+        peso INTEGER NOT NULL,
+        declaracion_precio INTEGER NOT NULL,
+        precio_neto INTEGER NOT NULL,
+        precio_seguro INTEGER NOT NULL,
+        precio_impuesto INTEGER NOT NULL,
+        precio_total INTEGER NOT NULL,
+        forma_pago VARCHAR(50) NOT NULL,
+        PRIMARY KEY(id_envio)
 
-CREATE TABLE clientes (
-	cedula INTEGER NOT NULL,
-	nombre VARCHAR(30) NOT NULL,
-	apellidos VARCHAR(40) NOT NULL,
-	direccion VARCHAR(50),
-	telefono VARCHAR(10),
-	email VARCHAR(30),
-	PRIMARY KEY (cedula)
+
 );

@@ -6,30 +6,22 @@
 package GUI;
 
 import java.awt.Toolkit;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import logica.Enviar_paquete;
-import logica.Generar_pdf;
 
 /**
  *
  * @author natha9404
  */
-public class Envio_paquete extends javax.swing.JFrame {
+public class Consultar_envio extends javax.swing.JFrame {
 
     /**
-     * Creates new form Envio_paquete
+     * Creates new form Consultar_envio
      */
-    public Envio_paquete() {
+    public Consultar_envio() {
         initComponents();
-        this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
-        setResizable(false);
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,11 +39,10 @@ public class Envio_paquete extends javax.swing.JFrame {
         jLabel16 = new javax.swing.JLabel();
         campo_consultar_nombre = new javax.swing.JTextField();
         campo_consultaruser_cedula = new javax.swing.JTextField();
-        campo_consultar_direccion = new javax.swing.JTextField();
+        forma_pago = new javax.swing.JTextField();
         campo_consultar_telefono = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        combo_tipo = new javax.swing.JComboBox<>();
         delicado = new java.awt.Checkbox();
         jLabel2 = new javax.swing.JLabel();
         peso_paquete = new javax.swing.JTextField();
@@ -59,7 +50,6 @@ public class Envio_paquete extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         campo_precio_paquete = new javax.swing.JTextField();
-        generar_pago = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         campo_precio_seguro = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -76,19 +66,22 @@ public class Envio_paquete extends javax.swing.JFrame {
         campo_consultar_direccion2 = new javax.swing.JTextField();
         campo_consultar_telefono2 = new javax.swing.JTextField();
         jLabel20 = new javax.swing.JLabel();
-        sede_destino = new javax.swing.JComboBox<>();
         jLabel21 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
         realizar_envio = new javax.swing.JButton();
         jLabel12 = new javax.swing.JLabel();
         campo_precio_total = new javax.swing.JTextField();
         jLabel24 = new javax.swing.JLabel();
-        combo_forma_pago = new javax.swing.JComboBox<>();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
+        sede_destino = new javax.swing.JTextField();
+        combo_tipo = new javax.swing.JTextField();
+        campo_consultar_direccion1 = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        num_envio = new javax.swing.JTextField();
+        boton_consultar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -103,12 +96,14 @@ public class Envio_paquete extends javax.swing.JFrame {
 
         jLabel16.setText(" Teléfono:");
 
+        campo_consultar_nombre.setEditable(false);
         campo_consultar_nombre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_consultar_nombreActionPerformed(evt);
             }
         });
 
+        campo_consultaruser_cedula.setEditable(false);
         campo_consultaruser_cedula.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_consultaruser_cedulaActionPerformed(evt);
@@ -120,12 +115,14 @@ public class Envio_paquete extends javax.swing.JFrame {
             }
         });
 
-        campo_consultar_direccion.addActionListener(new java.awt.event.ActionListener() {
+        forma_pago.setEditable(false);
+        forma_pago.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campo_consultar_direccionActionPerformed(evt);
+                forma_pagoActionPerformed(evt);
             }
         });
 
+        campo_consultar_telefono.setEditable(false);
         campo_consultar_telefono.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_consultar_telefonoActionPerformed(evt);
@@ -141,42 +138,30 @@ public class Envio_paquete extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Serif", 1, 20)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(102, 204, 255));
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/FlashLogo.png"))); // NOI18N
-        jLabel19.setText("Envio de Paquetes");
+        jLabel19.setText("Consultar Envio de Paquetes");
         jLabel19.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel19.setName("Registrar Usuario"); // NOI18N
 
         jLabel1.setText("Tipo de Envio:");
 
-        combo_tipo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Documento", "Paquete" }));
-        combo_tipo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                combo_tipoActionPerformed(evt);
-            }
-        });
-
+        delicado.setEnabled(false);
         delicado.setLabel("Delicado");
 
         jLabel2.setText("Declaración Precio del envio (Pesos):");
 
+        peso_paquete.setEditable(false);
         peso_paquete.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 peso_paqueteKeyTyped(evt);
             }
         });
 
+        seguro.setEnabled(false);
         seguro.setLabel("Adquirir seguro (10% Valor declarado)");
 
         jLabel3.setText("Precio Envio Neto:");
 
         campo_precio_paquete.setEditable(false);
-
-        generar_pago.setText("Generar Pago");
-        generar_pago.setEnabled(false);
-        generar_pago.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                generar_pagoActionPerformed(evt);
-            }
-        });
 
         jLabel5.setText("Precio Seguro:");
 
@@ -188,6 +173,7 @@ public class Envio_paquete extends javax.swing.JFrame {
 
         jLabel7.setText("Peso (kg):");
 
+        declaracion_precio.setEditable(false);
         declaracion_precio.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 declaracion_precioKeyTyped(evt);
@@ -206,12 +192,14 @@ public class Envio_paquete extends javax.swing.JFrame {
 
         jLabel18.setText(" Teléfono:");
 
+        campo_consultar_nombre2.setEditable(false);
         campo_consultar_nombre2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_consultar_nombre2ActionPerformed(evt);
             }
         });
 
+        campo_consultaruser_cedula2.setEditable(false);
         campo_consultaruser_cedula2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_consultaruser_cedula2ActionPerformed(evt);
@@ -223,12 +211,14 @@ public class Envio_paquete extends javax.swing.JFrame {
             }
         });
 
+        campo_consultar_direccion2.setEditable(false);
         campo_consultar_direccion2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_consultar_direccion2ActionPerformed(evt);
             }
         });
 
+        campo_consultar_telefono2.setEditable(false);
         campo_consultar_telefono2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campo_consultar_telefono2ActionPerformed(evt);
@@ -245,20 +235,12 @@ public class Envio_paquete extends javax.swing.JFrame {
         jLabel21.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel21.setText("DATOS ENVIO");
 
-        jButton2.setText("Cargar Sedes");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         jLabel22.setText("* Nombre Completo:");
 
         jLabel23.setFont(new java.awt.Font("Lucida Grande", 1, 14)); // NOI18N
         jLabel23.setText("DETALLE PAGO");
 
-        realizar_envio.setText("Realizar Envio y Generar Factura");
-        realizar_envio.setEnabled(false);
+        realizar_envio.setText("Salir");
         realizar_envio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 realizar_envioActionPerformed(evt);
@@ -272,7 +254,41 @@ public class Envio_paquete extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Lucida Grande", 1, 13)); // NOI18N
         jLabel24.setText("Forma de Pago:");
 
-        combo_forma_pago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Efectivo", "Tarjeta Debito", "Tarjeta Credito" }));
+        sede_destino.setEditable(false);
+        sede_destino.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sede_destinoActionPerformed(evt);
+            }
+        });
+
+        combo_tipo.setEditable(false);
+        combo_tipo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                combo_tipoActionPerformed(evt);
+            }
+        });
+
+        campo_consultar_direccion1.setEditable(false);
+        campo_consultar_direccion1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                campo_consultar_direccion1ActionPerformed(evt);
+            }
+        });
+
+        jLabel25.setText("Numero de Envio a Consultar:");
+
+        num_envio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                num_envioKeyTyped(evt);
+            }
+        });
+
+        boton_consultar.setText("Consultar Envio");
+        boton_consultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_consultarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -291,9 +307,6 @@ public class Envio_paquete extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 206, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                         .addGroup(jPanel7Layout.createSequentialGroup()
-                                            .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGap(173, 173, 173))
-                                        .addGroup(jPanel7Layout.createSequentialGroup()
                                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addComponent(jLabel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addGroup(jPanel7Layout.createSequentialGroup()
@@ -308,19 +321,14 @@ public class Envio_paquete extends javax.swing.JFrame {
                                                     .addGap(0, 0, Short.MAX_VALUE)))
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                                        .addComponent(campo_consultar_direccion2, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(sede_destino, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(combo_tipo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addComponent(peso_paquete, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(campo_consultar_direccion2, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(peso_paquete, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addComponent(sede_destino, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(combo_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel7Layout.createSequentialGroup()
                                             .addComponent(jLabel11)
                                             .addGap(0, 0, Short.MAX_VALUE))
-                                        .addGroup(jPanel7Layout.createSequentialGroup()
-                                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(campo_consultar_nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel7Layout.createSequentialGroup()
                                             .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                                 .addGroup(jPanel7Layout.createSequentialGroup()
@@ -330,8 +338,7 @@ public class Envio_paquete extends javax.swing.JFrame {
                                                     .addGap(25, 25, 25)
                                                     .addComponent(jLabel3)
                                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                                .addComponent(campo_consultar_direccion)
+                                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                                 .addComponent(declaracion_precio, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addGroup(jPanel7Layout.createSequentialGroup()
                                                     .addComponent(jLabel5)
@@ -339,8 +346,13 @@ public class Envio_paquete extends javax.swing.JFrame {
                                                 .addComponent(campo_precio_seguro, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(campo_consultar_nombre2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGroup(jPanel7Layout.createSequentialGroup()
-                                            .addGap(0, 0, Short.MAX_VALUE)
-                                            .addComponent(combo_forma_pago, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(campo_consultar_direccion1)
+                                                .addComponent(campo_consultar_nombre, javax.swing.GroupLayout.DEFAULT_SIZE, 194, Short.MAX_VALUE))))))
                             .addComponent(jLabel2))
                         .addGap(27, 27, 27))
                     .addGroup(jPanel7Layout.createSequentialGroup()
@@ -351,17 +363,17 @@ public class Envio_paquete extends javax.swing.JFrame {
                                 .addComponent(jLabel14)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel24)
-                                    .addComponent(campo_precio_paquete, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(211, 211, 211)))
+                                    .addComponent(campo_precio_paquete, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel7Layout.createSequentialGroup()
+                                        .addComponent(jLabel24)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(forma_pago, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(10, 10, 10)))
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addComponent(campo_precio_impuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(campo_precio_total, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(realizar_envio))
+                        .addComponent(campo_precio_impuesto, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(campo_precio_total, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -386,18 +398,20 @@ public class Envio_paquete extends javax.swing.JFrame {
                                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(delicado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(seguro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(generar_pago)
                                             .addGroup(jPanel7Layout.createSequentialGroup()
                                                 .addComponent(jLabel6)
                                                 .addGap(71, 71, 71)
-                                                .addComponent(jLabel12))
-                                            .addComponent(jButton2))
+                                                .addComponent(jLabel12)))
                                         .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(campo_consultaruser_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(330, 330, 330))))
+                        .addGap(330, 330, 330))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(26, 26, 26)
+                        .addComponent(realizar_envio)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addComponent(jSeparator1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -409,12 +423,26 @@ public class Envio_paquete extends javax.swing.JFrame {
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 758, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(jLabel25)
+                .addGap(38, 38, 38)
+                .addComponent(num_envio, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(33, 33, 33)
+                .addComponent(boton_consultar)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                .addComponent(jLabel19)
                 .addGap(18, 18, 18)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(num_envio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel25))
+                    .addComponent(boton_consultar))
+                .addGap(13, 13, 13)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel9)
@@ -425,7 +453,7 @@ public class Envio_paquete extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel15)
-                            .addComponent(campo_consultar_direccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(campo_consultar_direccion1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(7, 7, 7))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -452,25 +480,24 @@ public class Envio_paquete extends javax.swing.JFrame {
                             .addComponent(jLabel17)
                             .addComponent(campo_consultar_direccion2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(sede_destino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel20)))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel20)
+                            .addComponent(sede_destino, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(9, 9, 9))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
                             .addComponent(campo_consultar_telefono2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton2)))
-                .addGap(3, 3, 3)
+                        .addGap(50, 50, 50)))
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel21)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(8, 8, 8)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jLabel1)
-                        .addComponent(delicado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(combo_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(combo_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(delicado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(seguro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -480,8 +507,7 @@ public class Envio_paquete extends javax.swing.JFrame {
                 .addGap(17, 17, 17)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(declaracion_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(generar_pago))
+                    .addComponent(declaracion_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -507,10 +533,9 @@ public class Envio_paquete extends javax.swing.JFrame {
                             .addComponent(campo_precio_total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(combo_forma_pago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel24)
-                            .addComponent(realizar_envio))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(realizar_envio)
+                            .addComponent(forma_pago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -525,45 +550,23 @@ public class Envio_paquete extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 664, Short.MAX_VALUE)
+            .addGap(0, 682, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campo_consultar_telefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_consultar_telefonoActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campo_consultar_telefonoActionPerformed
-
-    private void campo_consultar_direccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_consultar_direccionActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campo_consultar_direccionActionPerformed
-
-    private void campo_consultaruser_cedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_consultaruser_cedulaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campo_consultaruser_cedulaActionPerformed
-
     private void campo_consultar_nombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_consultar_nombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_campo_consultar_nombreActionPerformed
 
-    private void campo_consultar_nombre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_consultar_nombre2ActionPerformed
+    private void campo_consultaruser_cedulaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_consultaruser_cedulaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_campo_consultar_nombre2ActionPerformed
-
-    private void campo_consultaruser_cedula2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_consultaruser_cedula2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campo_consultaruser_cedula2ActionPerformed
-
-    private void campo_consultar_direccion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_consultar_direccion2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campo_consultar_direccion2ActionPerformed
-
-    private void campo_consultar_telefono2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_consultar_telefono2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campo_consultar_telefono2ActionPerformed
+    }//GEN-LAST:event_campo_consultaruser_cedulaActionPerformed
 
     private void campo_consultaruser_cedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_consultaruser_cedulaKeyTyped
         // TODO add your handling code here:
@@ -573,6 +576,14 @@ public class Envio_paquete extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_campo_consultaruser_cedulaKeyTyped
 
+    private void forma_pagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forma_pagoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_forma_pagoActionPerformed
+
+    private void campo_consultar_telefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_consultar_telefonoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campo_consultar_telefonoActionPerformed
+
     private void campo_consultar_telefonoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_consultar_telefonoKeyTyped
         // TODO add your handling code here:
         if (!Character.isDigit(evt.getKeyChar()) && !Character.isISOControl(evt.getKeyChar())) {
@@ -580,30 +591,6 @@ public class Envio_paquete extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_campo_consultar_telefonoKeyTyped
-
-    private void campo_consultaruser_cedula2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_consultaruser_cedula2KeyTyped
-        // TODO add your handling code here:
-        if (!Character.isDigit(evt.getKeyChar()) && !Character.isISOControl(evt.getKeyChar())) {
-            Toolkit.getDefaultToolkit().beep();
-            evt.consume();
-        }
-    }//GEN-LAST:event_campo_consultaruser_cedula2KeyTyped
-
-    private void campo_consultar_telefono2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_consultar_telefono2KeyTyped
-        // TODO add your handling code here:
-        if (!Character.isDigit(evt.getKeyChar()) && !Character.isISOControl(evt.getKeyChar())) {
-            Toolkit.getDefaultToolkit().beep();
-            evt.consume();
-        }
-    }//GEN-LAST:event_campo_consultar_telefono2KeyTyped
-
-    private void declaracion_precioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_declaracion_precioKeyTyped
-        // TODO add your handling code here:
-        if (!Character.isDigit(evt.getKeyChar()) && !Character.isISOControl(evt.getKeyChar())) {
-            Toolkit.getDefaultToolkit().beep();
-            evt.consume();
-        }
-    }//GEN-LAST:event_declaracion_precioKeyTyped
 
     private void peso_paqueteKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_peso_paqueteKeyTyped
         // TODO add your handling code here:
@@ -613,149 +600,138 @@ public class Envio_paquete extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_peso_paqueteKeyTyped
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void declaracion_precioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_declaracion_precioKeyTyped
         // TODO add your handling code here:
-        
-        if((campo_consultar_nombre.getText().trim().length() != 0) && (campo_consultar_nombre2.getText().trim().length() !=0) && (campo_consultar_telefono.getText().trim().length() !=0) && (campo_consultar_telefono2.getText().trim().length() !=0) && (campo_consultar_direccion.getText().trim().length() !=0) && (campo_consultar_direccion2.getText().trim().length() !=0) && (campo_consultaruser_cedula.getText().trim().length() !=0) && (campo_consultaruser_cedula2.getText().trim().length() !=0))
-                {
-        logica.Sedes buscar = new logica.Sedes();
-        ArrayList<String> listar_nombres = new ArrayList<>();
-        listar_nombres = buscar.obtener_sedes();
-
-        String[] nombres = new String[listar_nombres.size()];
-
-        for (int i = 0; i < listar_nombres.size(); i++) {
-
-            nombres[i] = listar_nombres.get(i);
-            System.out.println(nombres[i]);
-
+        if (!Character.isDigit(evt.getKeyChar()) && !Character.isISOControl(evt.getKeyChar())) {
+            Toolkit.getDefaultToolkit().beep();
+            evt.consume();
         }
-        sede_destino.setModel(new javax.swing.DefaultComboBoxModel(nombres));
-        generar_pago.setEnabled(true);
-        }
-       
-        
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_declaracion_precioKeyTyped
 
-    private void generar_pagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generar_pagoActionPerformed
+    private void campo_consultar_nombre2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_consultar_nombre2ActionPerformed
         // TODO add your handling code here:
-        
-        int precio_documento = 7000;
-        int precio_paquete = 7300;
-        int precio_seguro = 200;
-        int precio_final= 0;
-        
-        
-        String tipo = combo_tipo.getSelectedItem().toString();
-        int peso = Integer.parseInt(peso_paquete.getText());
-        int declaracion_producto = Integer.parseInt(declaracion_precio.getText());
-        boolean estado_delicado = delicado.getState();
-        boolean est_seguro = seguro.getState();
-        double impuesto = 0.10;
-        
-        if (tipo.equals("Documento")){
-            if(est_seguro==true){
-                
-                precio_final =  (int) (precio_documento+precio_seguro+(precio_documento*impuesto));
-                campo_precio_paquete.setText(Integer.toString(precio_documento));
-                campo_precio_seguro.setText(Integer.toString(precio_seguro));
-                campo_precio_impuesto.setText(Integer.toString((int) (precio_documento*impuesto)));
-                campo_precio_total.setText(Integer.toString(precio_final));
-                
-                
-            }
-            else{
-                precio_final =  (int) (precio_documento+(precio_documento*impuesto));
-                
-                campo_precio_paquete.setText(Integer.toString(precio_documento));
-                campo_precio_seguro.setText("0");
-                campo_precio_impuesto.setText(Integer.toString((int) (precio_documento*impuesto)));
-                campo_precio_total.setText(Integer.toString(precio_final));
-                
-            }
-            
+    }//GEN-LAST:event_campo_consultar_nombre2ActionPerformed
+
+    private void campo_consultaruser_cedula2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_consultaruser_cedula2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campo_consultaruser_cedula2ActionPerformed
+
+    private void campo_consultaruser_cedula2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_consultaruser_cedula2KeyTyped
+        // TODO add your handling code here:
+        if (!Character.isDigit(evt.getKeyChar()) && !Character.isISOControl(evt.getKeyChar())) {
+            Toolkit.getDefaultToolkit().beep();
+            evt.consume();
         }
-        else{
-            if(est_seguro==true){
-                
-                precio_final = (int) ((precio_paquete*peso)+(peso*precio_seguro)+(declaracion_producto*impuesto));
-                campo_precio_paquete.setText(Integer.toString(precio_paquete*peso));
-                campo_precio_seguro.setText(Integer.toString(peso*precio_seguro));
-                campo_precio_impuesto.setText(Integer.toString((int) (declaracion_producto*impuesto)));
-                campo_precio_total.setText(Integer.toString(precio_final));
-                
-            }
-            else
-            {
-                precio_final = (int) ((precio_paquete*peso)+(precio_documento*impuesto));
-                campo_precio_paquete.setText(Integer.toString(precio_paquete*peso));
-                campo_precio_seguro.setText("0");
-                campo_precio_impuesto.setText(Integer.toString((int) (declaracion_producto*impuesto)));
-                campo_precio_total.setText(Integer.toString(precio_final));
-            }
-            
-            
+    }//GEN-LAST:event_campo_consultaruser_cedula2KeyTyped
+
+    private void campo_consultar_direccion2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_consultar_direccion2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campo_consultar_direccion2ActionPerformed
+
+    private void campo_consultar_telefono2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_consultar_telefono2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campo_consultar_telefono2ActionPerformed
+
+    private void campo_consultar_telefono2KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_consultar_telefono2KeyTyped
+        // TODO add your handling code here:
+        if (!Character.isDigit(evt.getKeyChar()) && !Character.isISOControl(evt.getKeyChar())) {
+            Toolkit.getDefaultToolkit().beep();
+            evt.consume();
         }
-        
-        
-        
-        
-        realizar_envio.setEnabled(true);
-    }//GEN-LAST:event_generar_pagoActionPerformed
+    }//GEN-LAST:event_campo_consultar_telefono2KeyTyped
 
     private void realizar_envioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizar_envioActionPerformed
         // TODO add your handling code here:
-        Generar_pdf obj = new Generar_pdf();
-        
-        String nombre = campo_consultar_nombre.getText();
-        String nombre2 = campo_consultar_nombre2.getText();
-        String cedula = campo_consultaruser_cedula.getText();
-        String cedula2 = campo_consultaruser_cedula2.getText();
-        String direccion = campo_consultar_direccion.getText();
-        String direccion2 = campo_consultar_direccion2.getText();
-        String telefono = campo_consultar_telefono.getText();
-        String telefono2 = campo_consultar_telefono2.getText();
-        String sede = sede_destino.getSelectedItem().toString();
-        String tipo = combo_tipo.getSelectedItem().toString();
-        boolean estado_obs = delicado.getState();
-        String observacion = "";
-        if(estado_obs==true){
-            observacion = "Delicado";
-        }
-        int peso = Integer.parseInt(peso_paquete.getText());
-        int declaracion_precio2 = Integer.parseInt(declaracion_precio.getText());
-        int precio_neto = Integer.parseInt(campo_precio_paquete.getText());
-        int precio_seguro = Integer.parseInt(campo_precio_seguro.getText());
-        int precio_impuesto = Integer.parseInt(campo_precio_impuesto.getText());
-        int total_envio = Integer.parseInt(campo_precio_total.getText());
-        String forma_pago = combo_forma_pago.getSelectedItem().toString();
-        
-        
-        Enviar_paquete obj_bd = new Enviar_paquete();
-        int num = obj_bd.secuencia();
-        obj_bd.insertar_envio(nombre, nombre2, cedula, cedula2, direccion, direccion2, telefono, telefono2, sede, tipo, observacion, peso, declaracion_precio2, precio_neto, precio_seguro, precio_impuesto, total_envio, forma_pago);
-        
-         try {
-            obj.ConvertirPDF(num, nombre, nombre2, cedula, cedula2, direccion, direccion2, telefono, telefono2, sede, tipo, observacion, peso, declaracion_precio2, precio_neto, precio_seguro, precio_impuesto, total_envio, forma_pago);
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Envio_paquete.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-         this.dispose();
-        
+
+        this.dispose();
+
     }//GEN-LAST:event_realizar_envioActionPerformed
+
+    private void sede_destinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sede_destinoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_sede_destinoActionPerformed
 
     private void combo_tipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_tipoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_combo_tipoActionPerformed
 
+    private void campo_consultar_direccion1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campo_consultar_direccion1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_campo_consultar_direccion1ActionPerformed
+
+    private void num_envioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_num_envioKeyTyped
+        // TODO add your handling code here:
+
+        if (!Character.isDigit(evt.getKeyChar()) && !Character.isISOControl(evt.getKeyChar())) {
+            Toolkit.getDefaultToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_num_envioKeyTyped
+
+    private void boton_consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_consultarActionPerformed
+        // TODO add your handling code here:
+        int numero_envio = Integer.parseInt(num_envio.getText());
+
+        Enviar_paquete obj_consultar = new Enviar_paquete();
+
+        ArrayList<String> datos_envio = new ArrayList<>();
+
+        datos_envio = obj_consultar.consultar_envio(numero_envio);
+
+        String nombre = datos_envio.get(0);
+        String nombre2 = datos_envio.get(4);
+        String cedula = datos_envio.get(1);
+        String cedula2 = datos_envio.get(5);
+        String direccion = datos_envio.get(2);
+        String direccion2 = datos_envio.get(6);
+        String telefono = datos_envio.get(3);
+        String telefono2 = datos_envio.get(7);
+        String sede = datos_envio.get(8);
+        String tipo = datos_envio.get(9);
+        String observacion = datos_envio.get(10);
+        String peso = datos_envio.get(11);
+        String declaracion_precio2 = datos_envio.get(12);
+        String precio_neto = datos_envio.get(13);
+        String precio_seguro = datos_envio.get(14);
+        String precio_impuesto = datos_envio.get(15);
+        String total_envio = datos_envio.get(16);
+        String forma_pago2 = datos_envio.get(17);
+        
+        campo_consultar_nombre.setText(nombre);
+        campo_consultar_nombre2.setText(nombre2);
+        campo_consultaruser_cedula.setText(cedula);
+        campo_consultaruser_cedula2.setText(cedula2);
+        campo_consultar_direccion1.setText(direccion);
+        campo_consultar_direccion2.setText(direccion2);
+        campo_consultar_telefono.setText(telefono);
+        campo_consultar_telefono2.setText(telefono2);
+        sede_destino.setText(sede);
+        combo_tipo.setText(tipo);
+        if(observacion.equals("Delicado")){
+            delicado.setState(true);
+        }
+        if(Integer.parseInt(precio_seguro)>0){
+        seguro.setState(true);
+    }
+        peso_paquete.setText(peso);
+        declaracion_precio.setText(declaracion_precio2);
+        campo_precio_paquete.setText(precio_neto);
+        campo_precio_seguro.setText(precio_seguro);
+        campo_precio_impuesto.setText(precio_impuesto);
+        campo_precio_total.setText(total_envio);
+        forma_pago.setText(forma_pago2);
+
+
+    }//GEN-LAST:event_boton_consultarActionPerformed
+
     /**
      * @param args the command line arguments
      */
-  
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField campo_consultar_direccion;
+    private javax.swing.JButton boton_consultar;
+    private javax.swing.JTextField campo_consultar_direccion1;
     private javax.swing.JTextField campo_consultar_direccion2;
     private javax.swing.JTextField campo_consultar_nombre;
     private javax.swing.JTextField campo_consultar_nombre2;
@@ -767,12 +743,10 @@ public class Envio_paquete extends javax.swing.JFrame {
     private javax.swing.JTextField campo_precio_paquete;
     private javax.swing.JTextField campo_precio_seguro;
     private javax.swing.JTextField campo_precio_total;
-    private javax.swing.JComboBox<String> combo_forma_pago;
-    private javax.swing.JComboBox<String> combo_tipo;
+    private javax.swing.JTextField combo_tipo;
     private javax.swing.JTextField declaracion_precio;
     private java.awt.Checkbox delicado;
-    private javax.swing.JButton generar_pago;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JTextField forma_pago;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -790,6 +764,7 @@ public class Envio_paquete extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -801,11 +776,10 @@ public class Envio_paquete extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTextField num_envio;
     private javax.swing.JTextField peso_paquete;
     private javax.swing.JButton realizar_envio;
-    private javax.swing.JComboBox<String> sede_destino;
+    private javax.swing.JTextField sede_destino;
     private java.awt.Checkbox seguro;
     // End of variables declaration//GEN-END:variables
-
-    
 }

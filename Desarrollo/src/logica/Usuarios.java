@@ -66,6 +66,7 @@ public class Usuarios {
             conexion.close();
 
         } catch (SQLException e) {
+            System.out.println(e);
             JOptionPane.showMessageDialog(null, "El usuario ya existe");
             existe=0;
 

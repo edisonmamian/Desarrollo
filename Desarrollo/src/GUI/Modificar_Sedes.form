@@ -68,8 +68,8 @@
                               <Component id="campo_modificar_direccion" alignment="0" max="32767" attributes="0"/>
                               <Component id="campo_modificar_telefono" alignment="0" max="32767" attributes="0"/>
                               <Component id="campo_modificar_ciudad" alignment="1" pref="217" max="32767" attributes="0"/>
-                              <Component id="jButton3" alignment="1" min="-2" pref="84" max="-2" attributes="0"/>
                               <Component id="campo_consultar_sede" alignment="1" max="32767" attributes="0"/>
+                              <Component id="jButton3" alignment="1" min="-2" pref="114" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>

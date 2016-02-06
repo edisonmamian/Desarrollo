@@ -23,13 +23,13 @@ import javax.swing.JOptionPane;
 public class Generar_pdf {
     
  
-public void ConvertirPDF(String nombre, String nombre2, String cedula, String cedula2,
+public void ConvertirPDF(int num, String nombre, String nombre2, String cedula, String cedula2,
 String direccion, String direccion2, String telefono, String telefono2,
 String sede, String tipo, String observacion, int peso, int declaracion_precio,
 int precio_neto, int precio_seguro, int precio_impuesto, int total_envio,
 String forma_pago) throws FileNotFoundException
     {
-        String nombre_pdf = "Factura.pdf"+cedula+"-"+cedula2;
+        String nombre_pdf = "Factura No "+num+".pdf";
         System.out.println(nombre_pdf);
         try
         {
@@ -44,7 +44,7 @@ String forma_pago) throws FileNotFoundException
             System.out.println("Documento Abierto");
             
             //Anexamos el texto a un objeto Pharagraph
-            Paragraph parametro=new Paragraph("Factura Envio de Paquete",FontFactory.getFont(FontFactory.TIMES_ROMAN,14,Font.BOLD, BaseColor.BLACK));
+            Paragraph parametro=new Paragraph("Factura Envio de Paquete No. "+ num,FontFactory.getFont(FontFactory.TIMES_ROMAN,14,Font.BOLD, BaseColor.BLACK));
             parametro.setAlignment(1);    
             Paragraph parametro2 = new Paragraph("Datos Remitente",FontFactory.getFont(FontFactory.TIMES_ROMAN,12,Font.BOLD, BaseColor.BLACK));
             Paragraph parametro3 = new Paragraph("Nombre: "+nombre+"        Telefono: "+telefono,FontFactory.getFont(FontFactory.TIMES_ROMAN,12,Font.NORMAL, BaseColor.BLACK));
@@ -87,6 +87,8 @@ String forma_pago) throws FileNotFoundException
             
             //Mensaje de Exito
             JOptionPane.showMessageDialog(null,"PDF Creado con exito.");
+            
+            
             
             
            

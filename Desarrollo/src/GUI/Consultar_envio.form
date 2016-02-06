@@ -34,9 +34,12 @@
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="664" max="32767" attributes="0"/>
+          <EmptySpace min="0" pref="682" max="32767" attributes="0"/>
           <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Component id="jPanel7" alignment="0" max="32767" attributes="0"/>
+              <Group type="102" alignment="0" attributes="0">
+                  <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
           </Group>
       </Group>
     </DimensionLayout>
@@ -73,37 +76,31 @@
                                       </Group>
                                       <Group type="103" alignment="1" groupAlignment="1" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabel15" max="32767" attributes="0"/>
-                                              <EmptySpace min="-2" pref="173" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
                                                   <Component id="jLabel17" alignment="0" max="32767" attributes="0"/>
-                                                  <Group type="102" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
                                                       <Group type="103" groupAlignment="0" attributes="0">
                                                           <Group type="102" alignment="0" attributes="0">
                                                               <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                                                  <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
+                                                                  <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                                                                  <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
                                                                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                                                               </Group>
                                                           </Group>
-                                                          <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                                                          <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
                                                       </Group>
                                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="1" attributes="0">
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="103" groupAlignment="1" attributes="0">
-                                                          <Component id="campo_consultar_direccion2" min="-2" pref="194" max="-2" attributes="0"/>
-                                                          <Component id="sede_destino" min="-2" pref="194" max="-2" attributes="0"/>
-                                                      </Group>
-                                                      <Component id="combo_tipo" alignment="1" min="-2" max="-2" attributes="0"/>
+                                                  <Group type="103" groupAlignment="1" attributes="0">
+                                                      <Component id="campo_consultar_direccion2" alignment="1" min="-2" pref="194" max="-2" attributes="0"/>
+                                                      <Component id="peso_paquete" alignment="1" min="-2" pref="130" max="-2" attributes="0"/>
+                                                      <Component id="sede_destino" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
                                                   </Group>
-                                                  <Component id="peso_paquete" min="-2" pref="130" max="-2" attributes="0"/>
+                                                  <Component id="combo_tipo" min="-2" pref="194" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
                                           <Group type="102" alignment="0" attributes="0">
@@ -111,13 +108,8 @@
                                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                           </Group>
                                           <Group type="102" alignment="1" attributes="0">
-                                              <Component id="jLabel8" max="32767" attributes="0"/>
-                                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                                              <Component id="campo_consultar_nombre" min="-2" pref="194" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="102" alignment="1" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Group type="102" attributes="0">
+                                                  <Group type="102" alignment="0" attributes="0">
                                                       <Component id="jLabel22" max="32767" attributes="0"/>
                                                       <EmptySpace max="-2" attributes="0"/>
                                                   </Group>
@@ -127,8 +119,7 @@
                                                       <EmptySpace max="32767" attributes="0"/>
                                                   </Group>
                                               </Group>
-                                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                                  <Component id="campo_consultar_direccion" max="32767" attributes="0"/>
+                                              <Group type="103" groupAlignment="1" attributes="0">
                                                   <Component id="declaracion_precio" alignment="1" min="-2" pref="130" max="-2" attributes="0"/>
                                                   <Group type="102" alignment="1" attributes="0">
                                                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
@@ -138,9 +129,16 @@
                                                   <Component id="campo_consultar_nombre2" alignment="0" min="-2" pref="194" max="-2" attributes="0"/>
                                               </Group>
                                           </Group>
-                                          <Group type="102" attributes="0">
-                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                                              <Component id="combo_forma_pago" min="-2" pref="155" max="-2" attributes="0"/>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <Group type="103" groupAlignment="0" attributes="0">
+                                                  <Component id="jLabel8" max="32767" attributes="0"/>
+                                                  <Component id="jLabel15" max="32767" attributes="0"/>
+                                              </Group>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                                  <Component id="campo_consultar_direccion1" max="32767" attributes="0"/>
+                                                  <Component id="campo_consultar_nombre" pref="194" max="32767" attributes="0"/>
+                                              </Group>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -152,44 +150,43 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLabel23" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" attributes="0">
                                   <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
-                                      <Component id="campo_precio_paquete" min="-2" pref="155" max="-2" attributes="0"/>
+                                      <Component id="campo_precio_paquete" alignment="0" min="-2" pref="155" max="-2" attributes="0"/>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel24" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="32767" attributes="0"/>
+                                          <Component id="forma_pago" min="-2" pref="194" max="-2" attributes="0"/>
+                                      </Group>
                                   </Group>
                               </Group>
                           </Group>
-                          <EmptySpace min="-2" pref="211" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="campo_precio_impuesto" min="-2" pref="155" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="campo_precio_total" min="-2" pref="155" max="-2" attributes="0"/>
-                              </Group>
-                              <Component id="realizar_envio" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="campo_precio_impuesto" min="-2" pref="155" max="-2" attributes="0"/>
+                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                          <Component id="campo_precio_total" min="-2" pref="155" max="-2" attributes="0"/>
                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
                                   <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="jLabel16" max="32767" attributes="0"/>
+                                              <Component id="jLabel16" alignment="0" max="32767" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jLabel18" min="-2" pref="71" max="-2" attributes="0"/>
                                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                               </Group>
-                                              <Group type="102" attributes="0">
+                                              <Group type="102" alignment="0" attributes="0">
                                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                                   <Component id="jLabel13" min="-2" pref="159" max="-2" attributes="0"/>
                                               </Group>
@@ -197,33 +194,36 @@
                                           <EmptySpace max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
                                               <Component id="campo_consultaruser_cedula2" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
-                                              <Component id="campo_consultar_telefono2" min="-2" pref="119" max="-2" attributes="0"/>
+                                              <Component id="campo_consultar_telefono2" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
                                               <Component id="campo_consultar_telefono" alignment="1" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Group type="102" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="delicado" min="-2" max="-2" attributes="0"/>
+                                              <Component id="delicado" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Component id="seguro" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="generar_pago" alignment="0" min="-2" max="-2" attributes="0"/>
                                               <Group type="102" alignment="0" attributes="0">
                                                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                                                   <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                                                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                                               </Group>
-                                              <Component id="jButton2" alignment="0" min="-2" max="-2" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
-                              <Group type="102" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
                                   <Component id="jLabel10" max="32767" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="campo_consultaruser_cedula" min="-2" pref="119" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <EmptySpace min="-2" pref="330" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <Component id="realizar_envio" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -233,21 +233,38 @@
                   <Component id="jLabel4" min="-2" pref="118" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="368" max="-2" attributes="0"/>
               </Group>
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel19" min="-2" pref="806" max="-2" attributes="0"/>
-                      <Component id="jSeparator2" min="-2" pref="758" max="-2" attributes="0"/>
+                      <Component id="jLabel19" alignment="0" min="-2" pref="806" max="-2" attributes="0"/>
+                      <Component id="jSeparator2" alignment="0" min="-2" pref="758" max="-2" attributes="0"/>
                       <Component id="jSeparator3" alignment="0" min="-2" pref="758" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="0" attributes="0">
+                  <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                  <Component id="jLabel25" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="num_envio" min="-2" pref="240" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                  <Component id="boton_consultar" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <Component id="jLabel19" pref="78" max="32767" attributes="0"/>
+                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="num_envio" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel25" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="boton_consultar" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
@@ -259,7 +276,7 @@
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel15" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="campo_consultar_direccion" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="campo_consultar_direccion1" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                       </Group>
@@ -294,35 +311,34 @@
                               <Component id="campo_consultar_direccion2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="sede_destino" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="jLabel20" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="sede_destino" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="jLabel18" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="campo_consultar_telefono2" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButton2" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
                   <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel21" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                          <Component id="delicado" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
+                          <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="combo_tipo" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="combo_tipo" min="-2" max="-2" attributes="0"/>
+                      <Component id="delicado" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="seguro" min="-2" max="-2" attributes="0"/>
+                      <Component id="seguro" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="peso_paquete" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -332,7 +348,6 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="declaracion_precio" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="generar_pago" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
@@ -340,7 +355,7 @@
                   <Component id="jLabel23" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="103" groupAlignment="3" attributes="0">
+                      <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -363,11 +378,10 @@
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="combo_forma_pago" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel24" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="realizar_envio" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="realizar_envio" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="forma_pago" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -398,22 +412,34 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="campo_consultar_nombre">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campo_consultar_nombreActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="campo_consultaruser_cedula">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campo_consultaruser_cedulaActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campo_consultaruser_cedulaKeyTyped"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="campo_consultar_direccion">
+        <Component class="javax.swing.JTextField" name="forma_pago">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campo_consultar_direccionActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="forma_pagoActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="campo_consultar_telefono">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campo_consultar_telefonoActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campo_consultar_telefonoKeyTyped"/>
@@ -433,7 +459,7 @@
             <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
               <Image iconType="3" name="/recursos/FlashLogo.png"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Envio de Paquetes"/>
+            <Property name="text" type="java.lang.String" value="Consultar Envio de Paquetes"/>
             <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
               <Border info="org.netbeans.modules.form.compat2.border.BevelBorderInfo">
                 <BevelBorder/>
@@ -447,24 +473,9 @@
             <Property name="text" type="java.lang.String" value="Tipo de Envio:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="combo_tipo">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="2">
-                <StringItem index="0" value="Documento"/>
-                <StringItem index="1" value="Paquete"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combo_tipoActionPerformed"/>
-          </Events>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
         <Component class="java.awt.Checkbox" name="delicado">
           <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="label" type="java.lang.String" value="Delicado"/>
           </Properties>
         </Component>
@@ -474,12 +485,16 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="peso_paquete">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="peso_paqueteKeyTyped"/>
           </Events>
         </Component>
         <Component class="java.awt.Checkbox" name="seguro">
           <Properties>
+            <Property name="enabled" type="boolean" value="false"/>
             <Property name="label" type="java.lang.String" value="Adquirir seguro (10% Valor declarado)"/>
           </Properties>
         </Component>
@@ -494,15 +509,6 @@
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="generar_pago">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Generar Pago"/>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="generar_pagoActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel5">
           <Properties>
@@ -530,6 +536,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="declaracion_precio">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="declaracion_precioKeyTyped"/>
           </Events>
@@ -566,22 +575,34 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="campo_consultar_nombre2">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campo_consultar_nombre2ActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="campo_consultaruser_cedula2">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campo_consultaruser_cedula2ActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campo_consultaruser_cedula2KeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="campo_consultar_direccion2">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campo_consultar_direccion2ActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="campo_consultar_telefono2">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campo_consultar_telefono2ActionPerformed"/>
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="campo_consultar_telefono2KeyTyped"/>
@@ -592,16 +613,6 @@
             <Property name="text" type="java.lang.String" value="Sede de Destino:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="sede_destino">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="0"/>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JLabel" name="jLabel21">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
@@ -609,14 +620,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="DATOS ENVIO"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Cargar Sedes"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel22">
           <Properties>
@@ -633,8 +636,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="realizar_envio">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Realizar Envio y Generar Factura"/>
-            <Property name="enabled" type="boolean" value="false"/>
+            <Property name="text" type="java.lang.String" value="Salir"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="realizar_envioActionPerformed"/>
@@ -658,25 +660,53 @@
             <Property name="text" type="java.lang.String" value="Forma de Pago:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JComboBox" name="combo_forma_pago">
-          <Properties>
-            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="Efectivo"/>
-                <StringItem index="1" value="Tarjeta Debito"/>
-                <StringItem index="2" value="Tarjeta Credito"/>
-              </StringArray>
-            </Property>
-          </Properties>
-          <AuxValues>
-            <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
-          </AuxValues>
-        </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator1">
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator2">
         </Component>
         <Component class="javax.swing.JSeparator" name="jSeparator3">
+        </Component>
+        <Component class="javax.swing.JTextField" name="sede_destino">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="sede_destinoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="combo_tipo">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="combo_tipoActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JTextField" name="campo_consultar_direccion1">
+          <Properties>
+            <Property name="editable" type="boolean" value="false"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="campo_consultar_direccion1ActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel25">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Numero de Envio a Consultar:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="num_envio">
+          <Events>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="num_envioKeyTyped"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="boton_consultar">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Consultar Envio"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_consultarActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

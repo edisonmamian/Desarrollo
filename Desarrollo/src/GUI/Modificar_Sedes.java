@@ -116,8 +116,8 @@ public class Modificar_Sedes extends javax.swing.JFrame {
                             .addComponent(campo_modificar_direccion, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(campo_modificar_telefono, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(campo_modificar_ciudad, javax.swing.GroupLayout.DEFAULT_SIZE, 217, Short.MAX_VALUE)
-                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campo_consultar_sede))))
+                            .addComponent(campo_consultar_sede)
+                            .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(33, Short.MAX_VALUE))
             .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
