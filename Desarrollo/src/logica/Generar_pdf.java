@@ -29,7 +29,7 @@ String sede, String tipo, String observacion, int peso, int declaracion_precio,
 int precio_neto, int precio_seguro, int precio_impuesto, int total_envio,
 String forma_pago) throws FileNotFoundException
     {
-        String nombre_pdf = "/Documentos/Factura.pdf";
+        String nombre_pdf = "Factura.pdf"+cedula+"-"+cedula2;
         System.out.println(nombre_pdf);
         try
         {
@@ -37,7 +37,7 @@ String forma_pago) throws FileNotFoundException
             Document documento=new Document(PageSize.LETTER,20,20,20,20);
             
             //Creamos el PDF y lo instanceamos para poder escribir sobre el
-            PdfWriter.getInstance(documento, new FileOutputStream(nombre)).setInitialLeading(20);
+            PdfWriter.getInstance(documento, new FileOutputStream(nombre_pdf)).setInitialLeading(20);
             
             //Abrimos el documento
             documento.open();
