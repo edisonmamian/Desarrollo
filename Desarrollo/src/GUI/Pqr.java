@@ -8,7 +8,12 @@ package GUI;
 import logica.Sedes;
 import logica.Bd_pqr;
 import java.awt.Toolkit;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -63,6 +68,8 @@ public class Pqr extends javax.swing.JFrame {
         enviar_pqr = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jLabel11 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        campo_fecha = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("SISTEMA FLASH");
@@ -177,22 +184,16 @@ public class Pqr extends javax.swing.JFrame {
         jLabel11.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel11.setName(""); // NOI18N
 
+        jLabel5.setText("Fecha (MM-DD-YYYY):");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addGap(31, 31, 31)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ComboBox_tipopqr, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))
-                        .addGap(36, 36, 36))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel14)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -227,14 +228,29 @@ public class Pqr extends javax.swing.JFrame {
                                             .addComponent(jLabel4)
                                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(combo_sedes, javax.swing.GroupLayout.PREFERRED_SIZE, 194, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))))
-            .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addContainerGap(15, Short.MAX_VALUE))))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(campo_fecha, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(ComboBox_tipopqr, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE)))
+                        .addGap(36, 36, 36))))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(59, 59, 59)
+                .addGap(15, 15, 15)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5)
+                    .addComponent(campo_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(ComboBox_tipopqr, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -333,7 +349,14 @@ public class Pqr extends javax.swing.JFrame {
     private void enviar_pqrActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enviar_pqrActionPerformed
         // TODO add your handling code here:
 
-        if ((texto_pqr.getText().trim().length() != 0) && (campo_pqr_nombre.getText().trim().length() != 0) && (campo_pqr_cedula.getText().trim().length() != 0) &&  (campo_pqr_apellido.getText().trim().length() != 0) &&  (campo_pqr_direccion.getText().trim().length() != 0) &&  (campo_pqr_telefono.getText().trim().length() != 0) &&  (campo_pqr_email.getText().trim().length() != 0) ) {
+        SimpleDateFormat sdf = new SimpleDateFormat("mm-dd-yyyy");
+	String dateInString = campo_fecha.getText();
+	Date date = null;
+        try {
+            date = sdf.parse(dateInString);
+            
+            
+            if ((texto_pqr.getText().trim().length() != 0) && (campo_pqr_nombre.getText().trim().length() != 0) && (campo_pqr_cedula.getText().trim().length() != 0) &&  (campo_pqr_apellido.getText().trim().length() != 0) &&  (campo_pqr_direccion.getText().trim().length() != 0) &&  (campo_pqr_telefono.getText().trim().length() != 0) &&  (campo_pqr_email.getText().trim().length() != 0) ) {
         
         String tipo_pqr = (String) ComboBox_tipopqr.getSelectedItem();
         String detalle = texto_pqr.getText();
@@ -347,12 +370,23 @@ public class Pqr extends javax.swing.JFrame {
 
         Bd_pqr objeto_bd = new Bd_pqr();
         objeto_bd.secuencia();
-        int n = objeto_bd.insertar_pqr(tipo_pqr, detalle, nombre, apellido, cedula, direccion, telefono, email, sede);
+        int n = objeto_bd.insertar_pqr(tipo_pqr, detalle, nombre, apellido, cedula, direccion, telefono, email, sede,dateInString);
         this.dispose();
         }
         else{
             JOptionPane.showMessageDialog(this, "Hay Campos Vacios");
         }
+            
+            
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(null, "Formato de fecha incompatible");
+        }
+	System.out.println(dateInString);
+        
+        
+        
+        
+        
     }//GEN-LAST:event_enviar_pqrActionPerformed
 
     private void combo_sedesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_sedesActionPerformed
@@ -398,8 +432,14 @@ public class Pqr extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_campo_pqr_telefonoKeyTyped
 
+    
+   
+    
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox ComboBox_tipopqr;
+    private javax.swing.JTextField campo_fecha;
     private javax.swing.JTextField campo_pqr_apellido;
     private javax.swing.JTextField campo_pqr_cedula;
     private javax.swing.JTextField campo_pqr_direccion;
@@ -419,6 +459,7 @@ public class Pqr extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel7;

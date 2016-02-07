@@ -7,9 +7,13 @@ package GUI;
 
 import java.awt.Toolkit;
 import java.io.FileNotFoundException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import logica.Enviar_paquete;
 import logica.Generar_pdf;
 
@@ -25,11 +29,10 @@ public class Envio_paquete extends javax.swing.JFrame {
     public Envio_paquete() {
         initComponents();
         this.setLocationRelativeTo(null);
-        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setResizable(false);
     }
-    
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -89,6 +92,8 @@ public class Envio_paquete extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
+        jLabel25 = new javax.swing.JLabel();
+        campo_fecha = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -274,6 +279,8 @@ public class Envio_paquete extends javax.swing.JFrame {
 
         combo_forma_pago.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Efectivo", "Tarjeta Debito", "Tarjeta Credito" }));
 
+        jLabel25.setText("Fecha (MM-DD-YYYY):");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -386,18 +393,25 @@ public class Envio_paquete extends javax.swing.JFrame {
                                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(delicado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(seguro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(generar_pago)
                                             .addGroup(jPanel7Layout.createSequentialGroup()
                                                 .addComponent(jLabel6)
                                                 .addGap(71, 71, 71)
                                                 .addComponent(jLabel12))
-                                            .addComponent(jButton2))
+                                            .addComponent(jButton2)
+                                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                                .addComponent(jLabel25)
+                                                .addGap(26, 26, 26)
+                                                .addComponent(campo_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                         .addGap(0, 0, Short.MAX_VALUE))))
                             .addGroup(jPanel7Layout.createSequentialGroup()
                                 .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(campo_consultaruser_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(330, 330, 330))))
+                        .addGap(330, 330, 330))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(209, 209, 209)
+                        .addComponent(generar_pago)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
             .addComponent(jSeparator1)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -413,7 +427,7 @@ public class Envio_paquete extends javax.swing.JFrame {
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
@@ -467,10 +481,13 @@ public class Envio_paquete extends javax.swing.JFrame {
                 .addComponent(jLabel21)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel1)
-                        .addComponent(delicado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(combo_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(4, 4, 4))
+                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(combo_tipo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel25)
+                        .addComponent(campo_fecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(seguro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -478,38 +495,43 @@ public class Envio_paquete extends javax.swing.JFrame {
                         .addComponent(jLabel7)
                         .addComponent(peso_paquete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(17, 17, 17)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(declaracion_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(generar_pago))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel5)
-                        .addComponent(jLabel6)
-                        .addComponent(jLabel12))
-                    .addComponent(jLabel3))
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jLabel14)
-                        .addGap(99, 99, 99)
-                        .addComponent(jLabel4))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(campo_precio_seguro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campo_precio_impuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campo_precio_paquete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(campo_precio_total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel2)
+                            .addComponent(declaracion_precio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(generar_pago))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(combo_forma_pago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel24)
-                            .addComponent(realizar_envio))
+                        .addComponent(jLabel23)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel5)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel12))
+                            .addComponent(jLabel3))
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(jLabel14)
+                                .addGap(99, 99, 99)
+                                .addComponent(jLabel4))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(campo_precio_seguro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(campo_precio_impuesto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(campo_precio_paquete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(campo_precio_total, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(combo_forma_pago, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel24)
+                                    .addComponent(realizar_envio))
+                                .addGap(0, 0, Short.MAX_VALUE))))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(delicado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
@@ -615,98 +637,106 @@ public class Envio_paquete extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
-        if((campo_consultar_nombre.getText().trim().length() != 0) && (campo_consultar_nombre2.getText().trim().length() !=0) && (campo_consultar_telefono.getText().trim().length() !=0) && (campo_consultar_telefono2.getText().trim().length() !=0) && (campo_consultar_direccion.getText().trim().length() !=0) && (campo_consultar_direccion2.getText().trim().length() !=0) && (campo_consultaruser_cedula.getText().trim().length() !=0) && (campo_consultaruser_cedula2.getText().trim().length() !=0))
-                {
-        logica.Sedes buscar = new logica.Sedes();
-        ArrayList<String> listar_nombres = new ArrayList<>();
-        listar_nombres = buscar.obtener_sedes();
 
-        String[] nombres = new String[listar_nombres.size()];
+        if ((campo_consultar_nombre.getText().trim().length() != 0) && (campo_consultar_nombre2.getText().trim().length() != 0) && (campo_consultar_telefono.getText().trim().length() != 0) && (campo_consultar_telefono2.getText().trim().length() != 0) && (campo_consultar_direccion.getText().trim().length() != 0) && (campo_consultar_direccion2.getText().trim().length() != 0) && (campo_consultaruser_cedula.getText().trim().length() != 0) && (campo_consultaruser_cedula2.getText().trim().length() != 0)) {
+            logica.Sedes buscar = new logica.Sedes();
+            ArrayList<String> listar_nombres = new ArrayList<>();
+            listar_nombres = buscar.obtener_sedes();
 
-        for (int i = 0; i < listar_nombres.size(); i++) {
+            String[] nombres = new String[listar_nombres.size()];
 
-            nombres[i] = listar_nombres.get(i);
-            System.out.println(nombres[i]);
+            for (int i = 0; i < listar_nombres.size(); i++) {
 
+                nombres[i] = listar_nombres.get(i);
+                System.out.println(nombres[i]);
+
+            }
+            sede_destino.setModel(new javax.swing.DefaultComboBoxModel(nombres));
+            generar_pago.setEnabled(true);
         }
-        sede_destino.setModel(new javax.swing.DefaultComboBoxModel(nombres));
-        generar_pago.setEnabled(true);
+        else{
+            JOptionPane.showMessageDialog(null, "Por favor complete todos los datos");
         }
-       
-        
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void generar_pagoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generar_pagoActionPerformed
         // TODO add your handling code here:
-        
-        int precio_documento = 7000;
-        int precio_paquete = 7300;
-        int precio_seguro = 200;
-        int precio_final= 0;
-        
-        
-        String tipo = combo_tipo.getSelectedItem().toString();
-        int peso = Integer.parseInt(peso_paquete.getText());
-        int declaracion_producto = Integer.parseInt(declaracion_precio.getText());
-        boolean estado_delicado = delicado.getState();
-        boolean est_seguro = seguro.getState();
-        double impuesto = 0.10;
-        
-        if (tipo.equals("Documento")){
-            if(est_seguro==true){
-                
-                precio_final =  (int) (precio_documento+precio_seguro+(precio_documento*impuesto));
-                campo_precio_paquete.setText(Integer.toString(precio_documento));
-                campo_precio_seguro.setText(Integer.toString(precio_seguro));
-                campo_precio_impuesto.setText(Integer.toString((int) (precio_documento*impuesto)));
+
+        SimpleDateFormat sdf = new SimpleDateFormat("mm-dd-yyyy");
+        String dateInString = campo_fecha.getText();
+        Date date = null;
+        try {
+            date = sdf.parse(dateInString);
+
+            if((peso_paquete.getText().trim().length() != 0)&&(declaracion_precio.getText().trim().length() != 0)){
+            
+            
+            int precio_documento = 7000;
+            int precio_paquete = 7300;
+            int precio_seguro = 200;
+            int precio_final = 0;
+
+            String tipo = combo_tipo.getSelectedItem().toString();
+            int peso = Integer.parseInt(peso_paquete.getText());
+            int declaracion_producto = Integer.parseInt(declaracion_precio.getText());
+            boolean estado_delicado = delicado.getState();
+            boolean est_seguro = seguro.getState();
+            double impuesto = 0.10;
+
+            if (tipo.equals("Documento")) {
+                if (est_seguro == true) {
+
+                    precio_final = (int) (precio_documento + precio_seguro + (precio_documento * impuesto));
+                    campo_precio_paquete.setText(Integer.toString(precio_documento));
+                    campo_precio_seguro.setText(Integer.toString(precio_seguro));
+                    campo_precio_impuesto.setText(Integer.toString((int) (precio_documento * impuesto)));
+                    campo_precio_total.setText(Integer.toString(precio_final));
+
+                } else {
+                    precio_final = (int) (precio_documento + (precio_documento * impuesto));
+
+                    campo_precio_paquete.setText(Integer.toString(precio_documento));
+                    campo_precio_seguro.setText("0");
+                    campo_precio_impuesto.setText(Integer.toString((int) (precio_documento * impuesto)));
+                    campo_precio_total.setText(Integer.toString(precio_final));
+
+                }
+
+            } else if (est_seguro == true) {
+
+                precio_final = (int) ((precio_paquete * peso) + (peso * precio_seguro) + (declaracion_producto * impuesto));
+                campo_precio_paquete.setText(Integer.toString(precio_paquete * peso));
+                campo_precio_seguro.setText(Integer.toString(peso * precio_seguro));
+                campo_precio_impuesto.setText(Integer.toString((int) (declaracion_producto * impuesto)));
                 campo_precio_total.setText(Integer.toString(precio_final));
-                
-                
-            }
-            else{
-                precio_final =  (int) (precio_documento+(precio_documento*impuesto));
-                
-                campo_precio_paquete.setText(Integer.toString(precio_documento));
+
+            } else {
+                precio_final = (int) ((precio_paquete * peso) + (precio_documento * impuesto));
+                campo_precio_paquete.setText(Integer.toString(precio_paquete * peso));
                 campo_precio_seguro.setText("0");
-                campo_precio_impuesto.setText(Integer.toString((int) (precio_documento*impuesto)));
+                campo_precio_impuesto.setText(Integer.toString((int) (declaracion_producto * impuesto)));
                 campo_precio_total.setText(Integer.toString(precio_final));
+            }
+
+            }else{
                 
+                JOptionPane.showMessageDialog(null, "Por favor complete todos los datos");
             }
             
+        } catch (ParseException ex) {
+            JOptionPane.showMessageDialog(null, "Formato de fecha incompatible");
         }
-        else{
-            if(est_seguro==true){
-                
-                precio_final = (int) ((precio_paquete*peso)+(peso*precio_seguro)+(declaracion_producto*impuesto));
-                campo_precio_paquete.setText(Integer.toString(precio_paquete*peso));
-                campo_precio_seguro.setText(Integer.toString(peso*precio_seguro));
-                campo_precio_impuesto.setText(Integer.toString((int) (declaracion_producto*impuesto)));
-                campo_precio_total.setText(Integer.toString(precio_final));
-                
-            }
-            else
-            {
-                precio_final = (int) ((precio_paquete*peso)+(precio_documento*impuesto));
-                campo_precio_paquete.setText(Integer.toString(precio_paquete*peso));
-                campo_precio_seguro.setText("0");
-                campo_precio_impuesto.setText(Integer.toString((int) (declaracion_producto*impuesto)));
-                campo_precio_total.setText(Integer.toString(precio_final));
-            }
-            
-            
-        }
-        
-        
-        
-        
+        System.out.println(dateInString);
+
         realizar_envio.setEnabled(true);
     }//GEN-LAST:event_generar_pagoActionPerformed
 
     private void realizar_envioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_realizar_envioActionPerformed
         // TODO add your handling code here:
         Generar_pdf obj = new Generar_pdf();
-        
+
         String nombre = campo_consultar_nombre.getText();
         String nombre2 = campo_consultar_nombre2.getText();
         String cedula = campo_consultaruser_cedula.getText();
@@ -719,7 +749,7 @@ public class Envio_paquete extends javax.swing.JFrame {
         String tipo = combo_tipo.getSelectedItem().toString();
         boolean estado_obs = delicado.getState();
         String observacion = "";
-        if(estado_obs==true){
+        if (estado_obs == true) {
             observacion = "Delicado";
         }
         int peso = Integer.parseInt(peso_paquete.getText());
@@ -729,20 +759,20 @@ public class Envio_paquete extends javax.swing.JFrame {
         int precio_impuesto = Integer.parseInt(campo_precio_impuesto.getText());
         int total_envio = Integer.parseInt(campo_precio_total.getText());
         String forma_pago = combo_forma_pago.getSelectedItem().toString();
-        
-        
+        String fecha = campo_fecha.getText();
+
         Enviar_paquete obj_bd = new Enviar_paquete();
         int num = obj_bd.secuencia();
-        obj_bd.insertar_envio(nombre, nombre2, cedula, cedula2, direccion, direccion2, telefono, telefono2, sede, tipo, observacion, peso, declaracion_precio2, precio_neto, precio_seguro, precio_impuesto, total_envio, forma_pago);
-        
-         try {
-            obj.ConvertirPDF(num, nombre, nombre2, cedula, cedula2, direccion, direccion2, telefono, telefono2, sede, tipo, observacion, peso, declaracion_precio2, precio_neto, precio_seguro, precio_impuesto, total_envio, forma_pago);
+        obj_bd.insertar_envio(nombre, nombre2, cedula, cedula2, direccion, direccion2, telefono, telefono2, sede, tipo, observacion, peso, declaracion_precio2, precio_neto, precio_seguro, precio_impuesto, total_envio, forma_pago,fecha);
+
+        try {
+            obj.ConvertirPDF(num, nombre, nombre2, cedula, cedula2, direccion, direccion2, telefono, telefono2, sede, tipo, observacion, peso, declaracion_precio2, precio_neto, precio_seguro, precio_impuesto, total_envio, forma_pago,fecha);
         } catch (FileNotFoundException ex) {
             Logger.getLogger(Envio_paquete.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-         this.dispose();
-        
+
+        this.dispose();
+
     }//GEN-LAST:event_realizar_envioActionPerformed
 
     private void combo_tipoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_combo_tipoActionPerformed
@@ -752,7 +782,6 @@ public class Envio_paquete extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField campo_consultar_direccion;
@@ -763,6 +792,7 @@ public class Envio_paquete extends javax.swing.JFrame {
     private javax.swing.JTextField campo_consultar_telefono2;
     private javax.swing.JTextField campo_consultaruser_cedula;
     private javax.swing.JTextField campo_consultaruser_cedula2;
+    private javax.swing.JTextField campo_fecha;
     private javax.swing.JTextField campo_precio_impuesto;
     private javax.swing.JTextField campo_precio_paquete;
     private javax.swing.JTextField campo_precio_seguro;
@@ -790,6 +820,7 @@ public class Envio_paquete extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel22;
     private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -807,5 +838,6 @@ public class Envio_paquete extends javax.swing.JFrame {
     private java.awt.Checkbox seguro;
     // End of variables declaration//GEN-END:variables
 
+  
     
 }

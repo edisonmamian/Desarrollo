@@ -27,7 +27,7 @@ public void ConvertirPDF(int num, String nombre, String nombre2, String cedula, 
 String direccion, String direccion2, String telefono, String telefono2,
 String sede, String tipo, String observacion, int peso, int declaracion_precio,
 int precio_neto, int precio_seguro, int precio_impuesto, int total_envio,
-String forma_pago) throws FileNotFoundException
+String forma_pago, String fecha) throws FileNotFoundException
     {
         String nombre_pdf = "Factura No "+num+".pdf";
         System.out.println(nombre_pdf);
@@ -45,7 +45,9 @@ String forma_pago) throws FileNotFoundException
             
             //Anexamos el texto a un objeto Pharagraph
             Paragraph parametro=new Paragraph("Factura Envio de Paquete No. "+ num,FontFactory.getFont(FontFactory.TIMES_ROMAN,14,Font.BOLD, BaseColor.BLACK));
-            parametro.setAlignment(1);    
+            parametro.setAlignment(1); 
+            Paragraph parametro17 = new Paragraph("Fecha: "+fecha, FontFactory.getFont(FontFactory.TIMES_ROMAN,14,Font.BOLD, BaseColor.BLACK));
+            parametro17.setAlignment(1);
             Paragraph parametro2 = new Paragraph("Datos Remitente",FontFactory.getFont(FontFactory.TIMES_ROMAN,12,Font.BOLD, BaseColor.BLACK));
             Paragraph parametro3 = new Paragraph("Nombre: "+nombre+"        Telefono: "+telefono,FontFactory.getFont(FontFactory.TIMES_ROMAN,12,Font.NORMAL, BaseColor.BLACK));
             Paragraph parametro4 = new Paragraph("Cedula: "+cedula+"        Dirección: "+direccion,FontFactory.getFont(FontFactory.TIMES_ROMAN,12,Font.NORMAL, BaseColor.BLACK));
@@ -65,6 +67,7 @@ String forma_pago) throws FileNotFoundException
             
 //Escribimos sobre el
             documento.add(parametro);
+            documento.add(parametro17);
             documento.add(parametro2);
             documento.add(parametro3);
             documento.add(parametro4);

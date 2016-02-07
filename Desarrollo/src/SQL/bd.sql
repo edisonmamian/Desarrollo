@@ -41,6 +41,7 @@ CREATE TABLE pqr (
         sede VARCHAR(50) NOT NULL,
         estado VARCHAR(30) NOT NULL,
         respuesta VARCHAR(200),
+        fecha,
         PRIMARY KEY(id_pqr)
 );
 CREATE SEQUENCE iden
@@ -66,6 +67,7 @@ CREATE TABLE envio (
         precio_impuesto INTEGER NOT NULL,
         precio_total INTEGER NOT NULL,
         forma_pago VARCHAR(50) NOT NULL,
+        fecha DATE,
         PRIMARY KEY(id_envio)
 
 

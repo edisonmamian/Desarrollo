@@ -53,7 +53,7 @@ public class Bd_pqr {
 
     public int insertar_pqr(String tipo_pqr, String detalle, String nombre,
             String apellido, String cedula, String direccion, String telefono,
-            String email, String sede) {
+            String email, String sede, String fecha) {
 
         int existe = 0;
 
@@ -62,13 +62,14 @@ public class Bd_pqr {
             con = pq.conectar();
             stmt = con.createStatement();
             
-            stmt.executeUpdate("INSERT INTO pqr VALUES (NEXTVAL('identificador'),'" + tipo_pqr + "','" + detalle + "','" + nombre + "','" + apellido + "','" + cedula + "','" + direccion + "','" + telefono + "','" + email + "' ,'" + sede + "','En Proceso')");
+            stmt.executeUpdate("INSERT INTO pqr VALUES (NEXTVAL('identificador'),'" + tipo_pqr + "','" + detalle + "','" + nombre + "','" + apellido + "','" + cedula + "','" + direccion + "','" + telefono + "','" + email + "' ,'" + sede + "','En Proceso',' ','" + fecha + "')");
             existe = 1;
             stmt.close();
             con.close();
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e);
+            System.out.println(e);
             existe = 0;
         }
 
@@ -100,6 +101,7 @@ public class Bd_pqr {
                 String sede = rs.getString(10);
                 String estado = rs.getString(11);
                 String respuesta = rs.getString(12);
+                String fecha = rs.getString(13);
                              
                
 
@@ -114,6 +116,7 @@ public class Bd_pqr {
                 consulta.add(sede);
                 consulta.add(estado);
                 consulta.add(respuesta);
+                consulta.add(fecha);
                         
 
                 System.out.println(tipo_pqr + detalle + nombre + apellido + cedula + direccion + telefono + email + sede + estado +respuesta);

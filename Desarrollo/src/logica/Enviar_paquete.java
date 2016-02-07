@@ -58,7 +58,7 @@ public class Enviar_paquete {
             String direccion, String direccion2, String telefono, String telefono2,
             String sede, String tipo, String observacion, int peso, int declaracion_precio,
             int precio_neto, int precio_seguro, int precio_impuesto, int total_envio,
-            String forma_pago) {
+            String forma_pago, String fecha) {
 
         int existe = 0;
 
@@ -67,7 +67,7 @@ public class Enviar_paquete {
             con = pq.conectar();
             stmt = con.createStatement();
 
-            stmt.executeUpdate("INSERT INTO envio VALUES (NEXTVAL('iden'),'" + nombre + "','" + cedula + "','" + direccion + "','" + telefono + "','" + nombre2 + "','" + cedula2 + "','" + direccion2 + "','" + telefono2 + "' ,'" + sede + "','" + tipo + "','" + observacion + "','" + peso + "','" + declaracion_precio + "' ,'" + precio_neto + "','" + precio_seguro + "','" + precio_impuesto + "','" + total_envio + "' ,'" + forma_pago + "')");
+            stmt.executeUpdate("INSERT INTO envio VALUES (NEXTVAL('iden'),'" + nombre + "','" + cedula + "','" + direccion + "','" + telefono + "','" + nombre2 + "','" + cedula2 + "','" + direccion2 + "','" + telefono2 + "' ,'" + sede + "','" + tipo + "','" + observacion + "','" + peso + "','" + declaracion_precio + "' ,'" + precio_neto + "','" + precio_seguro + "','" + precio_impuesto + "','" + total_envio + "' ,'" + forma_pago + "','" + fecha + "')");
             existe = 1;
             stmt.close();
             con.close();
@@ -146,6 +146,7 @@ public class Enviar_paquete {
                 String precio_impuesto = rs.getString(17);
                 String total_envio = rs.getString(18);
                 String forma_pago = rs.getString(19);
+                String fecha = rs.getString(20);
 
                 
 
@@ -167,6 +168,7 @@ public class Enviar_paquete {
                 consulta.add(precio_impuesto);
                 consulta.add(total_envio);
                 consulta.add(forma_pago);
+                consulta.add(fecha);
                 
 
                 System.out.println(consulta);
@@ -179,7 +181,10 @@ public class Enviar_paquete {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "El numero de envio a buscar no existe" + e);
 
+        } catch (Exception a){
+            JOptionPane.showMessageDialog(null, "El numero de envio no existe");
         }
+        
         return consulta;
 
     }
