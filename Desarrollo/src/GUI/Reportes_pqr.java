@@ -21,6 +21,9 @@ public class Reportes_pqr extends javax.swing.JFrame {
     public Reportes_pqr() {
         initComponents();
         sedes();
+        this.setLocationRelativeTo(null);
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
+        setResizable(false);
     }
     
     public void sedes(){
@@ -155,6 +158,11 @@ public class Reportes_pqr extends javax.swing.JFrame {
 
         jButton2.setText("Graficar");
         jButton2.setEnabled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -254,7 +262,7 @@ public class Reportes_pqr extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        
+        jButton2.setEnabled(true);
         String ano = combo_ano.getSelectedItem().toString();
         int mes_inicio = 1;
         int mes_final = 12;
@@ -326,6 +334,11 @@ public class Reportes_pqr extends javax.swing.JFrame {
         jTable1.setModel(modelo);
         jTable2.setModel(modelo2);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments

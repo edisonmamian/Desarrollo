@@ -161,8 +161,14 @@
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="boton_envio_usuario_mes">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_envio_usuario_mesActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="boton_envio_usuario_ano">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="boton_envio_usuario_anoActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

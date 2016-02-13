@@ -289,5 +289,39 @@ public class Consulta_reportes {
         
         return num_efectivo;
     }
+
+    public ResultSet consultar_envio_user(String fecha1, String fecha2, int cedula) {
+        
+        String num_cedula = "'"+cedula+"'";
+        ResultSet rs = null;
+        
+        try {
+            
+            Bd_pqr pq = new Bd_pqr();
+            con = pq.conectar();
+            stmt = con.createStatement();
+            
+            String query = "SELECT id_envio,fecha,nombre, nombre2, direccion2, precio_total, forma_pago FROM envio WHERE cedula="+num_cedula+ "AND fecha>="+fecha1+" AND fecha<="+fecha2;
+
+            rs = stmt.executeQuery(query);
+           if (rs==null){
+               JOptionPane.showMessageDialog(null, "La Cedula no existe");
+           }
+                System.out.println(rs);
+
+            
+
+        } catch (SQLException e) {
+            System.out.println(e);
+            JOptionPane.showMessageDialog(null, "La Cedula no existe");
+
+        }
+        
+        return rs;
+        
+    }
+
+  
+
     
 }

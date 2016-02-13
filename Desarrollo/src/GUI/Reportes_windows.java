@@ -5,6 +5,8 @@
  */
 package GUI;
 
+import logica.Consulta_reportes;
+
 /**
  *
  * @author natha9404
@@ -98,6 +100,18 @@ public class Reportes_windows extends javax.swing.JFrame {
         boton_envios_ano.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boton_envios_anoActionPerformed(evt);
+            }
+        });
+
+        boton_envio_usuario_mes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_envio_usuario_mesActionPerformed(evt);
+            }
+        });
+
+        boton_envio_usuario_ano.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_envio_usuario_anoActionPerformed(evt);
             }
         });
 
@@ -203,6 +217,21 @@ public class Reportes_windows extends javax.swing.JFrame {
         obj.setVisible(true);
         obj.ano();
     }//GEN-LAST:event_boton_envios_anoActionPerformed
+
+    private void boton_envio_usuario_anoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_envio_usuario_anoActionPerformed
+        // TODO add your handling code here:
+        Reportes_envio_user obj= new Reportes_envio_user();
+        obj.setVisible(true);
+        obj.ano();
+        this.dispose();
+    }//GEN-LAST:event_boton_envio_usuario_anoActionPerformed
+
+    private void boton_envio_usuario_mesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_envio_usuario_mesActionPerformed
+        // TODO add your handling code here:
+        Reportes_envio_user obj= new Reportes_envio_user();
+        obj.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_boton_envio_usuario_mesActionPerformed
 
     /**
      * @param args the command line arguments

@@ -5,7 +5,11 @@
  */
 package GUI;
 
+import java.awt.Toolkit;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import logica.Consulta_reportes;
 
@@ -13,21 +17,17 @@ import logica.Consulta_reportes;
  *
  * @author natha9404
  */
-public class Reportes_envios extends javax.swing.JFrame {
+public class Reportes_envio_user extends javax.swing.JFrame {
 
     /**
-     * Creates new form Reportes_envios
+     * Creates new form Reportes_envio_user
      */
-    public Reportes_envios() {
+    public Reportes_envio_user() {
         initComponents();
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(DISPOSE_ON_CLOSE); 
         setResizable(false);
-        
     }
-    
-   
-
     
     public void ano(){
         
@@ -46,16 +46,17 @@ public class Reportes_envios extends javax.swing.JFrame {
 
         jPanel7 = new javax.swing.JPanel();
         jLabel19 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        combo_ano = new javax.swing.JComboBox<>();
-        jLabel3 = new javax.swing.JLabel();
-        combo_mes = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         volver_principal = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        campo_cedula = new javax.swing.JTextField();
+        combo_mes = new javax.swing.JComboBox<>();
+        jLabel3 = new javax.swing.JLabel();
+        combo_ano = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,19 +67,9 @@ public class Reportes_envios extends javax.swing.JFrame {
         jLabel19.setFont(new java.awt.Font("Serif", 1, 20)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(102, 204, 255));
         jLabel19.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/FlashLogo.png"))); // NOI18N
-        jLabel19.setText("REPORTES ENVIOS");
+        jLabel19.setText("REPORTES DE ENVIOS POR USUARIO");
         jLabel19.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
         jLabel19.setName("Usuarios"); // NOI18N
-
-        jLabel1.setText("Datos a Consultar");
-
-        jLabel2.setText("Año:");
-
-        combo_ano.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2016", "2015", "2014", "2013" }));
-
-        jLabel3.setText("Mes:");
-
-        combo_mes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
 
         jButton1.setText("Consultar Reporte");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -89,14 +80,14 @@ public class Reportes_envios extends javax.swing.JFrame {
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Sede Destino", "Numero de Envios", "Pagos Trjta Debito", "Pagos Trjeta Credito", "Pagos En Efectivo"
+                "ID Envio", "Fecha", "Nombre Usuario", "Nom. Destinatario", "Direccion destino", "Precio", "Forma de Pago"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -114,72 +105,96 @@ public class Reportes_envios extends javax.swing.JFrame {
 
         jButton2.setText("Graficar");
         jButton2.setEnabled(false);
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Ingrese número de cedula:");
+
+        campo_cedula.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                campo_cedulaKeyTyped(evt);
+            }
+        });
+
+        combo_mes.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" }));
+
+        jLabel3.setText("Mes:");
+
+        combo_ano.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "2016", "2015", "2014", "2013" }));
+
+        jLabel2.setText("Año:");
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGap(17, 17, 17)
-                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel1)
-                                    .addGroup(jPanel7Layout.createSequentialGroup()
-                                        .addComponent(jLabel2)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(combo_ano, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(jLabel3)
-                                        .addGap(29, 29, 29)
-                                        .addComponent(combo_mes, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(jButton1)
-                                        .addGap(29, 29, 29)
-                                        .addComponent(jButton2))))
-                            .addGroup(jPanel7Layout.createSequentialGroup()
-                                .addGap(246, 246, 246)
-                                .addComponent(volver_principal)))
-                        .addGap(0, 69, Short.MAX_VALUE))
-                    .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 726, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addGap(18, 18, 18)
+                        .addComponent(campo_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel2)
+                        .addGap(26, 26, 26)
+                        .addComponent(combo_ano, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addGap(76, 76, 76)
+                        .addComponent(jButton2)))
+                .addGap(35, 35, 35)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(combo_mes, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(263, 263, 263)
+                .addComponent(volver_principal)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(campo_cedula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(combo_ano, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3)
-                    .addComponent(combo_mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(combo_mes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(15, 15, 15)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(volver_principal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(volver_principal)
+                .addGap(4, 4, 4))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 745, Short.MAX_VALUE)
+            .addGap(0, 754, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 303, Short.MAX_VALUE)
+            .addGap(0, 285, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -191,12 +206,18 @@ public class Reportes_envios extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-
+       
+        if(campo_cedula.getText().isEmpty()==true){
+            JOptionPane.showMessageDialog(null, "Ingrese un numero de cedula");
+        }
+        else{
+            
+                
         jButton2.setEnabled(true);
         String ano = combo_ano.getSelectedItem().toString();
         int mes_inicio = 1;
         int mes_final = 12;
-        
+        int cedula = Integer.parseInt(campo_cedula.getText());
 
         String fecha1,fecha2 = "";
         int dia_inicio=1;
@@ -230,72 +251,91 @@ public class Reportes_envios extends javax.swing.JFrame {
         }
 
         System.out.println("mes"+mes_inicio);
-        Consulta_reportes obj_consultar = new Consulta_reportes();
-        ArrayList<String> sedes = new ArrayList<>();
-        sedes = obj_consultar.consultar_envio(fecha1,fecha2);
-        ArrayList<Integer> num_envios = new ArrayList<>();
-        ArrayList<Integer> num_debito = new ArrayList<>();
-        ArrayList<Integer> num_credito = new ArrayList<>();
-        ArrayList<Integer> num_efectivo = new ArrayList<>();
         
 
         
-        Object [] fila1=new Object[5];
+        
+        ResultSet rs = null;
+        
+        Consulta_reportes obj_consulta = new Consulta_reportes();
+        rs = obj_consulta.consultar_envio_user(fecha1,fecha2,cedula);
+        
+        int contador =0;
 
-        DefaultTableModel modelo=(DefaultTableModel) jTable1.getModel();
-       
         try{
-        for(int i = 0; i<sedes.size(); i++){
-            
-            num_envios = obj_consultar.consultar_num_envio(fecha1,fecha2,sedes.get(i));
-            
-            num_debito = obj_consultar.consultar_num_debito(fecha1,fecha2,sedes.get(i));
-            
-            num_credito = obj_consultar.consultar_num_credito(fecha1,fecha2,sedes.get(i));
-            
-            num_efectivo = obj_consultar.consultar_num_efectivo(fecha1,fecha2,sedes.get(i));
-            
-            fila1[0]=sedes.get(i);
-            System.out.println("GUI.Reportes_envios.jButton1ActionPerformed()");
-            
-            
-            System.out.println(num_envios);
-            System.out.println(num_debito);
-            System.out.println(num_credito);
-            System.out.println(num_efectivo);
-            fila1[1] = num_envios.toString();
-            System.out.println("tamano"+fila1.length);
-            fila1[2] = num_debito.toString();
-            fila1[3] = num_credito.toString();
-            fila1[4] = num_efectivo.toString();
-            
-            System.out.println(sedes.get(i));
-            modelo.addRow(fila1);
+            /*
+            se le da el nombre a las columnas de la tabla
+            */
+             DefaultTableModel modelo=(DefaultTableModel) jTable1.getModel();
+             jTable1.setModel(modelo);
+           
+             
+           
+                 
+             
+            while (rs.next()){
+                Object [] fila1=new Object[7];
+                /*
+                se anexa las filas con la informacion de la(s) sede(s)
+                */
+                
+             
+                
+                fila1[0]=(rs.getString(1));
+                fila1[1]=(rs.getString(2));
+                fila1[2]=(rs.getString(3));
+                fila1[3]=(rs.getString(4));
+                fila1[4]=(rs.getString(5));
+                fila1[5]=(rs.getString(6));
+                fila1[6]=(rs.getString(7));
+                modelo.addRow(fila1);
+                contador +=1;
+                
+            }
+            rs.close();
+        }catch(SQLException e){
+            System.out.println("Error al escribir en la tabla"+e);
         }
         
+        if(contador==0){
+            JOptionPane.showMessageDialog(null, "No Existen registros");
+            campo_cedula.setText("");
+        }
+
+
         
-      
-        jTable1.setModel(modelo);
-        }catch(Exception e){
-            System.out.println(e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void volver_principalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volver_principalActionPerformed
         // TODO add your handling code here:
         // se devuelve a la ventana anterior
-        //obj_ventana_principal.rol(rol_user);
+
         this.dispose();
     }//GEN-LAST:event_volver_principalActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void campo_cedulaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_campo_cedulaKeyTyped
+        // TODO add your handling code here:
+        if (!Character.isDigit(evt.getKeyChar()) && !Character.isISOControl(evt.getKeyChar())) {
+            Toolkit.getDefaultToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_campo_cedulaKeyTyped
 
     /**
      * @param args the command line arguments
      */
-  
+   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField campo_cedula;
     private javax.swing.JComboBox<String> combo_ano;
-    public javax.swing.JComboBox<String> combo_mes;
+    private javax.swing.JComboBox<String> combo_mes;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
